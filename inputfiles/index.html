@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a active" href="index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="pages/about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="pages/dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="pages/research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="pages/publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="pages/grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="pages/labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="pages/international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="pages/career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="pages/contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="pages/coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="pages/sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="pages/mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="pages/scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="pages/thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="pages/contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="pages/about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="pages/dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="pages/research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="pages/publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="pages/grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="pages/labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="pages/international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="pages/career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="pages/coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="pages/sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="pages/mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="pages/scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="pages/thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="pages/contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="pages/coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="pages/sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="pages/mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="pages/scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="pages/thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📚</strong> New MoU signed with CMC Vellore for Biomedical Research</span>
+    <span class="ticker__item hi hidden"><strong>📚</strong> CMC वेल्लोर के साथ बायोमेडिकल MoU हस्ताक्षरित</span>
+    <span class="ticker__item en"><strong>🔬</strong> AI Elephant Intrusion System deployed — Lakshmi Precision Technologies</span>
+    <span class="ticker__item hi hidden"><strong>🔬</strong> AI हाथी घुसपैठ प्रणाली तैनात — लक्ष्मी प्रिसिजन</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला — अभी आवेदन करें</span>
+    <span class="ticker__item en"><strong>💡</strong> Deep Tech Programme — ₹100Cr+ Funding from ISRO, DST, DRDO</span>
+    <span class="ticker__item hi hidden"><strong>💡</strong> डीप टेक — ISRO, DST, DRDO से ₹100Cr+ फंडिंग</span>
+  </div>
+</div>
+
+<div class="pw" style="padding-top:0">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg bg-grid">
+      <div class="hero__orb orb1"></div>
+      <div class="hero__orb orb2"></div>
+      <div class="hero__orb orb3"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__badge rev">
+        <span class="pill pill-t"><span class="pill-dot"></span>
+          <span class="en">Pioneering Research Since 1984</span>
+          <span class="hi hidden">1984 से अग्रणी अनुसंधान</span>
+        </span>
+      </div>
+      <h1 class="hero__title rev d1">
+        <span class="en">Advancing<br><span class="ac">Knowledge.</span><br>Shaping Tomorrow.</span>
+        <span class="hi hidden">ज्ञान को<br><span class="ac">आगे बढ़ाना।</span><br>कल को आकार देना।</span>
+      </h1>
+      <p class="hero__sub rev d2 en">VIT Vellore — India's premier research institution driving innovation across engineering, sciences and technology with measurable global impact.</p>
+      <p class="hero__sub rev d2 hi hidden">वीआईटी वेल्लोर — भारत का प्रमुख अनुसंधान संस्थान जो इंजीनियरिंग, विज्ञान और प्रौद्योगिकी में वैश्विक प्रभाव के साथ नवाचार को आगे बढ़ा रहा है।</p>
+      <div class="hero__ctas rev d3">
+        <a href="pages/dashboard.html" class="btn btn-p btn-lg" data-nav>
+          <span class="en">Explore Dashboard</span><span class="hi hidden">डैशबोर्ड देखें</span> →
+        </a>
+        <a href="pages/research.html" class="btn btn-o btn-lg" data-nav>
+          <span class="en">View Research</span><span class="hi hidden">अनुसंधान देखें</span>
+        </a>
+      </div>
+      <div class="hero__stats rev d4">
+        <div class="hstat"><div class="sn" style="font-size:36px" data-count="42819">0</div><div class="sl en">Researchers</div><div class="sl hi hidden">शोधकर्ता</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="sn" style="font-size:36px" data-pre="₹" data-count="127" data-suf="Cr+">0</div><div class="sl en">Funding</div><div class="sl hi hidden">फंडिंग</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="sn" style="font-size:36px" data-count="15">0</div><div class="sl en">Research Centers</div><div class="sl hi hidden">अनुसंधान केंद्र</div></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><div class="sn" style="font-size:36px" data-count="312">0</div><div class="sl en">Active Projects</div><div class="sl hi hidden">सक्रिय परियोजनाएं</div></div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span class="en">Scroll</span><span class="hi hidden">स्क्रॉल</span>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <section class="ql-sec sec-bg1">
+    <div class="ql-grid">
+      <a class="ql-card rpl card card-glow" href="pages/dashboard.html" data-nav>
+        <div class="ql-ico">📊</div>
+        <div class="ql-title en">Live Dashboard</div><div class="ql-title hi hidden">लाइव डैशबोर्ड</div>
+        <div class="ql-sub en">Real-time research metrics</div><div class="ql-sub hi hidden">रियल-टाइम मेट्रिक्स</div>
+        <div class="ql-arrow">→</div>
+      </a>
+      <a class="ql-card rpl card card-glow" href="pages/research.html" data-nav>
+        <div class="ql-ico">🔬</div>
+        <div class="ql-title en">Research Projects</div><div class="ql-title hi hidden">अनुसंधान परियोजनाएं</div>
+        <div class="ql-sub en">Ongoing &amp; completed work</div><div class="ql-sub hi hidden">चल रहे और पूर्ण कार्य</div>
+        <div class="ql-arrow">→</div>
+      </a>
+      <a class="ql-card rpl card card-glow" href="pages/international.html" data-nav>
+        <div class="ql-ico">🌍</div>
+        <div class="ql-title en">International</div><div class="ql-title hi hidden">अंतर्राष्ट्रीय</div>
+        <div class="ql-sub en">Global partnerships &amp; MoUs</div><div class="ql-sub hi hidden">वैश्विक साझेदारी और MoU</div>
+        <div class="ql-arrow">→</div>
+      </a>
+      <a class="ql-card rpl card card-glow" href="pages/career.html" data-nav>
+        <div class="ql-ico">🎓</div>
+        <div class="ql-title en">Career Center</div><div class="ql-title hi hidden">कैरियर केंद्र</div>
+        <div class="ql-sub en">PhD, Postdoc &amp; placements</div><div class="ql-sub hi hidden">पीएचडी, पोस्टडॉक और प्लेसमेंट</div>
+        <div class="ql-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="hi-sec sec-bg2">
+    <div class="hi-grid">
+      <div class="hi-text rev rev-l">
+        <div class="eyebrow en">Why VIT Research</div><div class="eyebrow hi hidden">वीआईटी अनुसंधान क्यों</div>
+        <h2 class="sec__h en">Where Curiosity Meets <span class="ac">Excellence</span></h2>
+        <h2 class="sec__h hi hidden">जहाँ जिज्ञासा <span class="ac">उत्कृष्टता</span> से मिलती है</h2>
+        <p class="sec__lead en">Founded in 1984, VIT Vellore is an Institution of Eminence with ₹100Cr+ in research funding from ISRO, DST, DRDO and international bodies. Ranked #1 among private universities for innovation.</p>
+        <p class="sec__lead hi hidden">1984 में स्थापित, वीआईटी वेल्लोर एक उत्कृष्टता संस्थान है जिसे ISRO, DST, DRDO से ₹100Cr+ अनुसंधान फंडिंग प्राप्त है।</p>
+        <a href="pages/about.html" class="btn btn-p" data-nav>
+          <span class="en">Learn More →</span><span class="hi hidden">और जानें →</span>
+        </a>
+      </div>
+      <div class="hi-cards">
+        <div class="hi-card card card-glow cpl rev rev-r d1"><div class="hi-ico">🏆</div><div class="hi-val" data-count="1" data-pre="#">#</div><div class="hi-lbl en">Private Institution — Innovation (ARIIA)</div><div class="hi-lbl hi hidden">नवाचार में #1 निजी संस्थान</div></div>
+        <div class="hi-card card card-glow cpl rev rev-r d2"><div class="hi-ico">📄</div><div class="hi-val" data-count="8940">0</div><div class="hi-lbl en">Publications in 2024</div><div class="hi-lbl hi hidden">2024 में प्रकाशन</div></div>
+        <div class="hi-card card card-glow cpl rev rev-r d3"><div class="hi-ico">🏷️</div><div class="hi-val" data-count="486">0</div><div class="hi-lbl en">Patents Filed</div><div class="hi-lbl hi hidden">पेटेंट दायर किए</div></div>
+        <div class="hi-card card card-glow cpl rev rev-r d4"><div class="hi-ico">🌐</div><div class="hi-val" data-count="89">0</div><div class="hi-lbl en">Partner Universities</div><div class="hi-lbl hi hidden">भागीदार विश्वविद्यालय</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT UPDATES -->
+  <section class="upd-sec sec-bg1">
+    <div class="upd-inner">
+      <div class="eyebrow rev en">Latest Updates</div><div class="eyebrow rev hi hidden">नवीनतम अपडेट</div>
+      <h2 class="sec__h rev en">Research <span class="ac">Spotlight</span></h2>
+      <h2 class="sec__h rev hi hidden">अनुसंधान <span class="ac">स्पॉटलाइट</span></h2>
+      <div class="upd-grid">
+        <div class="upd-card card card-glow cp rev d1">
+          <div class="pill pill-r" style="margin-bottom:14px"><span class="pill-dot"></span><span class="en">New</span><span class="hi hidden">नया</span></div>
+          <div class="upd-ico">🤖</div>
+          <h3 class="en">AI Elephant Intrusion Avoidance System</h3><h3 class="hi hidden">AI आधारित हाथी घुसपैठ परिहार प्रणाली</h3>
+          <p class="en">Technology transfer to Lakshmi Precision Technologies — protecting wildlife and farmland using deep learning.</p>
+          <p class="hi hidden">लक्ष्मी प्रिसिजन टेक्नोलॉजीज को प्रौद्योगिकी हस्तांतरण।</p>
+          <div class="upd-meta en">Technology Transfer · March 2026</div><div class="upd-meta hi hidden">प्रौद्योगिकी हस्तांतरण · मार्च 2026</div>
+        </div>
+        <div class="upd-card card card-glow cp rev d2">
+          <div class="pill pill-g" style="margin-bottom:14px">MoU</div>
+          <div class="upd-ico">🏥</div>
+          <h3 class="en">VIT–CMC Biomedical Research MoU</h3><h3 class="hi hidden">वीआईटी–CMC बायोमेडिकल अनुसंधान MoU</h3>
+          <p class="en">Bridging technical research and clinical application with Christian Medical College, Vellore.</p>
+          <p class="hi hidden">क्रिश्चियन मेडिकल कॉलेज के साथ तकनीकी अनुसंधान और क्लिनिकल अनुप्रयोग को जोड़ना।</p>
+          <div class="upd-meta en">Clinical Research · 2026</div><div class="upd-meta hi hidden">क्लिनिकल अनुसंधान · 2026</div>
+        </div>
+        <div class="upd-card card card-glow cp rev d3">
+          <div class="pill pill-v" style="margin-bottom:14px"><span class="pill-dot"></span><span class="en">Ongoing</span><span class="hi hidden">जारी</span></div>
+          <div class="upd-ico">🚀</div>
+          <h3 class="en">Deep Tech PhD — ISRO Collaboration</h3><h3 class="hi hidden">डीप टेक पीएचडी — ISRO सहयोग</h3>
+          <p class="en">Fully funded doctoral research in space technology, nanosatellites and propulsion systems.</p>
+          <p class="hi hidden">अंतरिक्ष प्रौद्योगिकी में पूर्ण वित्त पोषित डॉक्टरल अनुसंधान।</p>
+          <div class="upd-meta en">Aerospace Research · 2025–27</div><div class="upd-meta hi hidden">एयरोस्पेस अनुसंधान · 2025–27</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <!-- ALL 15 PAGES — EXPLORE SECTION -->
+  <section class="more-section">
+    <div class="more-section__inner">
+      <div class="eyebrow rev en">Complete Dashboard</div>
+      <div class="eyebrow rev hi hidden">संपूर्ण डैशबोर्ड</div>
+      <h2 class="sec__h rev en">Explore All <span class="ac">15 Pages</span></h2>
+      <h2 class="sec__h rev hi hidden">सभी <span class="ac">15 पृष्ठ</span> देखें</h2>
+      <p class="sec__lead rev en">Navigate to any section of the VIT Research Dashboard directly from here.</p>
+      <p class="sec__lead rev hi hidden">यहाँ से VIT अनुसंधान डैशबोर्ड के किसी भी अनुभाग पर जाएं।</p>
+      <div class="more-grid">
+        <a class="more-card rev d1" href="pages/about.html" data-nav>
+          <div class="more-card__icon">ℹ️</div>
+          <div class="more-card__title en">About</div><div class="more-card__title hi hidden">बारे में</div>
+          <div class="more-card__sub en">Mission, vision &amp; legacy</div><div class="more-card__sub hi hidden">मिशन, विज़न और विरासत</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d2" href="pages/dashboard.html" data-nav>
+          <div class="more-card__icon">📊</div>
+          <div class="more-card__title en">Dashboard</div><div class="more-card__title hi hidden">डैशबोर्ड</div>
+          <div class="more-card__sub en">Live KPIs &amp; charts</div><div class="more-card__sub hi hidden">लाइव KPIs और चार्ट</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d3" href="pages/research.html" data-nav>
+          <div class="more-card__icon">🔬</div>
+          <div class="more-card__title en">Research</div><div class="more-card__title hi hidden">अनुसंधान</div>
+          <div class="more-card__sub en">Active projects &amp; progress</div><div class="more-card__sub hi hidden">सक्रिय परियोजनाएं</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d4" href="pages/publications.html" data-nav>
+          <div class="more-card__icon">📄</div>
+          <div class="more-card__title en">Publications &amp; IP</div><div class="more-card__title hi hidden">प्रकाशन और IP</div>
+          <div class="more-card__sub en">Papers, patents &amp; citations</div><div class="more-card__sub hi hidden">पेपर, पेटेंट और उद्धरण</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d5" href="pages/grants.html" data-nav>
+          <div class="more-card__icon">💰</div>
+          <div class="more-card__title en">Grants Portal</div><div class="more-card__title hi hidden">अनुदान पोर्टल</div>
+          <div class="more-card__sub en">Kanban funding tracker</div><div class="more-card__sub hi hidden">फंडिंग ट्रैकर</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d1" href="pages/labs.html" data-nav>
+          <div class="more-card__icon">🔭</div>
+          <div class="more-card__title en">Lab Booking</div><div class="more-card__title hi hidden">लैब बुकिंग</div>
+          <div class="more-card__sub en">Book equipment &amp; facilities</div><div class="more-card__sub hi hidden">उपकरण बुकिंग</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d2" href="pages/international.html" data-nav>
+          <div class="more-card__icon">🌍</div>
+          <div class="more-card__title en">International</div><div class="more-card__title hi hidden">अंतर्राष्ट्रीय</div>
+          <div class="more-card__sub en">89 global partners</div><div class="more-card__sub hi hidden">89 वैश्विक भागीदार</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d3" href="pages/career.html" data-nav>
+          <div class="more-card__icon">🎓</div>
+          <div class="more-card__title en">Career Center</div><div class="more-card__title hi hidden">कैरियर केंद्र</div>
+          <div class="more-card__sub en">PhD, postdoc &amp; placements</div><div class="more-card__sub hi hidden">पीएचडी और प्लेसमेंट</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d4" href="pages/coe.html" data-nav>
+          <div class="more-card__icon">🏛️</div>
+          <div class="more-card__title en">Centres of Excellence</div><div class="more-card__title hi hidden">उत्कृष्टता केंद्र</div>
+          <div class="more-card__sub en">9 research centres with live metrics</div><div class="more-card__sub hi hidden">9 अनुसंधान केंद्र</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d5" href="pages/sdg.html" data-nav>
+          <div class="more-card__icon">🌱</div>
+          <div class="more-card__title en">SDG Impact</div><div class="more-card__title hi hidden">SDG प्रभाव</div>
+          <div class="more-card__sub en">17 UN goals — click to filter</div><div class="more-card__sub hi hidden">17 UN लक्ष्य — क्लिक करें</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d1" href="pages/mou.html" data-nav>
+          <div class="more-card__icon">🤝</div>
+          <div class="more-card__title en">Industry MoUs</div><div class="more-card__title hi hidden">उद्योग MoU</div>
+          <div class="more-card__sub en">Corporate partnerships &amp; Sankey</div><div class="more-card__sub hi hidden">कॉर्पोरेट साझेदारी</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d2" href="pages/scholars.html" data-nav>
+          <div class="more-card__icon">👩‍🔬</div>
+          <div class="more-card__title en">Scholar Directory</div><div class="more-card__title hi hidden">शोधार्थी निर्देशिका</div>
+          <div class="more-card__sub en">Faculty &amp; PhD sparkline cards</div><div class="more-card__sub hi hidden">संकाय और पीएचडी कार्ड</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d3" href="pages/thesis.html" data-nav>
+          <div class="more-card__icon">📋</div>
+          <div class="more-card__title en">Thesis Tracker</div><div class="more-card__title hi hidden">थीसिस ट्रैकर</div>
+          <div class="more-card__sub en">Defense schedule &amp; RSVP</div><div class="more-card__sub hi hidden">डिफेंस शेड्यूल और RSVP</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+        <a class="more-card rev d4" href="pages/contact.html" data-nav>
+          <div class="more-card__icon">✉️</div>
+          <div class="more-card__title en">Contact</div><div class="more-card__title hi hidden">संपर्क</div>
+          <div class="more-card__sub en">Get in touch with VIT Research</div><div class="more-card__sub hi hidden">VIT अनुसंधान से संपर्क</div>
+          <div class="more-card__arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="pages/about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="pages/dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="pages/research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="pages/publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="pages/grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="pages/labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="pages/coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="pages/sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="pages/mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="pages/scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="pages/thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="js/nav.js"></script>
+</body>
+</html>
