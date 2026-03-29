@@ -1,0 +1,5 @@
+Flask
+Babel
+# Deployment dependencies
+Gunicorn
+psycopg2-binary
