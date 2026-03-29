@@ -1,0 +1,34 @@
+/* mou.css — Industry MoUs & Consultancy */
+.mou-hero{padding:60px 26px 48px;position:relative;overflow:hidden}
+.mou-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(245,166,35,.07),transparent);pointer-events:none}
+.mou-hero__inner{max-width:var(--mw);margin:0 auto;position:relative;z-index:1}
+.mou-kpi-row{max-width:var(--mw);margin:0 auto;padding:0 26px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mou-kpi{background:var(--card);border:1px solid var(--br1);border-radius:var(--r2);padding:24px;position:relative;overflow:hidden;transition:all var(--tb) var(--ease)}
+.mou-kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--kc,var(--gold))}
+.mou-kpi:hover{transform:translateY(-3px);border-color:var(--br2);box-shadow:var(--sh-card)}
+.mou-kpi__icon{font-size:22px;margin-bottom:10px}
+.mou-kpi__val{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--t1);line-height:1;margin-bottom:5px}
+.mou-kpi__label{font-size:12px;color:var(--t2)}
+/* SANKEY CHART */
+.sankey-section{max-width:var(--mw);margin:0 auto;padding:0 26px 60px}
+.sankey-wrap{background:var(--card);border:1px solid var(--br1);border-radius:var(--r3);padding:32px}
+.sankey-title{font-size:15px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.sankey-sub{font-size:12px;color:var(--t3);margin-bottom:28px}
+#sankey-svg{width:100%;height:320px}
+/* MoU CARDS */
+.mou-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:var(--mw);margin:0 auto}
+.mou-card{background:var(--card);border:1px solid var(--br1);border-radius:var(--r2);padding:24px;transition:all var(--tb) var(--ease);cursor:default;position:relative;overflow:hidden}
+.mou-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.018),transparent);pointer-events:none}
+.mou-card:hover{transform:translateY(-5px);border-color:rgba(245,166,35,.25);box-shadow:var(--sh-card)}
+.mou-card__top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.mou-logo{width:48px;height:48px;background:rgba(255,255,255,.06);border-radius:var(--r1);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid var(--br2)}
+.mou-company{font-size:15px;font-weight:700;color:var(--t1)}
+.mou-sector{font-size:11px;color:var(--gold);font-weight:600}
+.mou-desc{font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px}
+.mou-meta{display:flex;gap:10px;flex-wrap:wrap}
+.mou-meta span{font-size:11px;color:var(--t3)}
+.mou-status{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:12px}
+.mou-status.active{background:rgba(0,229,187,.1);color:var(--teal);border:1px solid rgba(0,229,187,.2)}
+.mou-status.new{background:rgba(255,85,119,.1);color:var(--rose);border:1px solid rgba(255,85,119,.2)}
+@media(max-width:1024px){.mou-kpi-row{grid-template-columns:repeat(2,1fr)}.mou-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.mou-grid{grid-template-columns:1fr}}

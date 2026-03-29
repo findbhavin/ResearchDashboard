@@ -1,0 +1,12 @@
+/* international.css */
+.gstats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--mw);margin:0 auto}
+.gstat{text-align:center;transition:all var(--tb) var(--ease)}
+.gstat:hover{transform:translateY(-5px);border-color:var(--teal-bdr)}
+.country-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--mw);margin:0 auto}
+.country-card{transition:all var(--tb) var(--ease);cursor:default}
+.country-card:hover{transform:translateY(-5px);border-color:var(--teal-bdr);box-shadow:var(--sh-teal),var(--sh-card)}
+.cc-flag{font-size:34px;margin-bottom:10px;display:block}
+.cc-name{font-size:15px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.cc-unis{font-size:12px;color:var(--t3);line-height:1.5}
+@media(max-width:1024px){.gstats-grid{grid-template-columns:repeat(2,1fr)}.country-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.country-grid{grid-template-columns:1fr}.gstats-grid{grid-template-columns:1fr 1fr}}

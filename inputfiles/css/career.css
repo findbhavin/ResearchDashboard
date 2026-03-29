@@ -1,0 +1,22 @@
+/* career.css */
+.placement-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}
+.place-ring-wrap{display:flex;flex-direction:column;align-items:center}
+.place-ring{position:relative;display:flex;align-items:center;justify-content:center}
+.place-ring__text{position:absolute;text-align:center}
+.place-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ps-card{display:flex;gap:13px;align-items:flex-start;transition:all var(--tb) var(--ease)}
+.ps-card:hover{transform:translateY(-3px);border-color:var(--teal-bdr)}
+.ps-ico{font-size:22px;flex-shrink:0}
+.ps-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:3px}
+.ps-val{font-family:var(--fd);font-size:34px;font-weight:700;color:var(--teal);line-height:1;margin-bottom:3px}
+.ps-desc{font-size:11px;color:var(--t3);line-height:1.5}
+.prog-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:var(--mw);margin:0 auto}
+.prog-card{cursor:default;transition:all var(--tb) var(--ease)}
+.prog-card:hover{transform:translateY(-5px);border-color:var(--teal-bdr);box-shadow:var(--sh-teal),var(--sh-card)}
+.prog-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.prog-ico{font-size:26px}
+.prog-card h3{font-size:15.5px;font-weight:700;color:var(--t1);margin-bottom:9px}
+.prog-card p{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:11px}
+.prog-meta{font-size:11px;color:var(--t3)}
+@media(max-width:1024px){.placement-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.prog-cards{grid-template-columns:1fr}.place-stats{grid-template-columns:1fr}}

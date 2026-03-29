@@ -1,0 +1,61 @@
+/* thesis.css — Thesis & Defense Tracker */
+.thesis-hero{padding:60px 26px 48px;position:relative;overflow:hidden}
+.thesis-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(255,85,119,.07),transparent);pointer-events:none}
+.thesis-hero__inner{max-width:var(--mw);margin:0 auto;position:relative;z-index:1}
+.thesis-kpi-row{max-width:var(--mw);margin:0 auto;padding:0 26px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.thesis-kpi{background:var(--card);border:1px solid var(--br1);border-radius:var(--r2);padding:22px;text-align:center;transition:all var(--tb) var(--ease)}
+.thesis-kpi:hover{transform:translateY(-3px);border-color:var(--br2)}
+.thesis-kpi__icon{font-size:22px;margin-bottom:8px}
+.thesis-kpi__val{font-family:var(--fd);font-size:32px;font-weight:700;color:var(--rose);line-height:1;margin-bottom:5px}
+.thesis-kpi__label{font-size:11px;color:var(--t2)}
+/* FILTER */
+.thesis-controls{max-width:var(--mw);margin:0 auto;padding:0 26px 28px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.thesis-tab{padding:8px 16px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--br2);color:var(--t2);background:transparent;cursor:pointer;transition:all var(--tb) var(--ease);font-family:var(--fb)}
+.thesis-tab:hover{border-color:rgba(255,85,119,.3);color:var(--rose)}
+.thesis-tab.on{background:var(--rose);border-color:var(--rose);color:#fff}
+/* MAIN LAYOUT */
+.thesis-layout{max-width:var(--mw);margin:0 auto;padding:0 26px 80px;display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+/* VERTICAL TIMELINE */
+.thesis-timeline{display:flex;flex-direction:column;gap:0}
+.thesis-item{display:flex;gap:22px;align-items:flex-start;padding:0 0 28px 28px;border-left:2px solid var(--br1);position:relative;transition:border-color var(--tb)}
+.thesis-item::before{content:'';position:absolute;left:-9px;top:18px;width:16px;height:16px;border-radius:50%;border:3px solid var(--br2);background:var(--bg0);transition:all var(--tb) var(--spring);z-index:1}
+.thesis-item.defense::before{background:var(--rose);border-color:var(--rose);box-shadow:0 0 12px rgba(255,85,119,.4)}
+.thesis-item.synopsis::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px rgba(245,166,35,.3)}
+.thesis-item.seminar::before{background:var(--teal);border-color:var(--teal);box-shadow:0 0 12px rgba(0,229,187,.3)}
+.thesis-item:hover{border-left-color:rgba(255,255,255,.12)}
+.thesis-item:hover::before{transform:scale(1.3)}
+.thesis-item__date-col{text-align:center;min-width:52px;flex-shrink:0}
+.thesis-item__day{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--t1);line-height:1}
+.thesis-item__month{font-size:10px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:1px}
+.thesis-item__time{font-size:11px;color:var(--teal);margin-top:3px;font-weight:600}
+.thesis-item__card{flex:1;background:var(--card);border:1px solid var(--br1);border-radius:var(--r2);padding:20px;transition:all var(--tb) var(--ease)}
+.thesis-item__card:hover{border-color:rgba(255,255,255,.1);box-shadow:var(--sh-card)}
+.thesis-item__top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:10px}
+.thesis-item__scholar{font-size:15px;font-weight:700;color:var(--t1);line-height:1.3;flex:1}
+.thesis-item__type-badge{padding:3px 11px;border-radius:12px;font-size:10px;font-weight:700;flex-shrink:0;white-space:nowrap}
+.type-defense{background:rgba(255,85,119,.1);color:var(--rose);border:1px solid rgba(255,85,119,.2)}
+.type-synopsis{background:rgba(245,166,35,.1);color:var(--gold);border:1px solid rgba(245,166,35,.2)}
+.type-seminar{background:rgba(0,229,187,.1);color:var(--teal);border:1px solid rgba(0,229,187,.2)}
+.thesis-item__title{font-size:13.5px;color:var(--t2);margin-bottom:10px;line-height:1.55}
+.thesis-item__meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.thesis-item__meta span{font-size:11px;color:var(--t3)}
+.thesis-item__actions{display:flex;gap:10px;align-items:center}
+.rsvp-btn{padding:7px 18px;border-radius:var(--r1);font-size:12px;font-weight:700;border:1px solid rgba(0,229,187,.3);color:var(--teal);background:rgba(0,229,187,.07);cursor:pointer;transition:all var(--tb) var(--ease);font-family:var(--fb)}
+.rsvp-btn:hover,.rsvp-btn.rsvpd{background:var(--teal);color:#000;border-color:var(--teal)}
+.rsvp-count{font-size:11px;color:var(--t3)}
+/* SIDEBAR */
+.thesis-sidebar{display:flex;flex-direction:column;gap:20px}
+.thesis-sidebar-card{background:var(--card);border:1px solid var(--br1);border-radius:var(--r2);padding:22px}
+.tsc-title{font-size:13px;font-weight:700;color:var(--t1);margin-bottom:16px}
+.month-stat{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--br1);font-size:13px}
+.month-stat:last-child{border-bottom:none}
+.month-stat__label{color:var(--t2)}
+.month-stat__val{font-weight:700;color:var(--teal)}
+.guide-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--br1)}
+.guide-item:last-child{border-bottom:none}
+.guide-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--violet));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;font-family:var(--fd);flex-shrink:0}
+.guide-name{font-size:13px;font-weight:600;color:var(--t1)}
+.guide-count{font-size:11px;color:var(--t3)}
+.guide-val{margin-left:auto;font-family:var(--fd);font-size:18px;font-weight:700;color:var(--rose)}
+@media(max-width:1024px){.thesis-layout{grid-template-columns:1fr}.thesis-sidebar{display:grid;grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.thesis-sidebar{grid-template-columns:1fr}.thesis-kpi-row{grid-template-columns:repeat(2,1fr)}}

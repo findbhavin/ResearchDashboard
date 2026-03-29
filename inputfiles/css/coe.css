@@ -1,0 +1,37 @@
+/* coe.css — Centers of Excellence Hub */
+.coe-hero{padding:60px 26px 48px;position:relative;overflow:hidden}
+.coe-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,229,187,.07),transparent);pointer-events:none}
+.coe-hero__inner{max-width:var(--mw);margin:0 auto;position:relative;z-index:1}
+.page-h{font-family:var(--fd);font-size:clamp(32px,4.5vw,58px);font-weight:700;letter-spacing:-1.4px;color:var(--t1);margin:16px 0 10px;line-height:1.08}
+.page-h .hi{letter-spacing:0}
+.page-sub{font-size:15px;color:var(--t2);max-width:520px;line-height:1.75}
+.coe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:var(--mw);margin:0 auto}
+.coe-card{background:var(--card);border:1px solid var(--br1);border-radius:var(--r3);padding:28px;position:relative;overflow:hidden;cursor:pointer;transition:all var(--tb) var(--ease)}
+.coe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--coe-c,var(--teal))}
+.coe-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.12);box-shadow:var(--sh-card)}
+.coe-card__header{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.coe-card__icon{font-size:32px;flex-shrink:0}
+.coe-card__name{font-size:15px;font-weight:700;color:var(--t1);line-height:1.3}
+.coe-card__abbr{font-size:11px;color:var(--coe-c,var(--teal));font-weight:600;margin-top:2px;letter-spacing:.5px}
+.coe-card__desc{font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:18px}
+.coe-card__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:16px;border-top:1px solid var(--br1)}
+.coe-stat__val{font-family:var(--fd);font-size:22px;font-weight:700;color:var(--coe-c,var(--teal));line-height:1}
+.coe-stat__label{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin-top:2px}
+.coe-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity var(--tb) var(--ease)}
+.coe-modal-overlay.open{opacity:1;pointer-events:all}
+.coe-modal{background:var(--bg2);border:1px solid var(--br2);border-radius:var(--r3);padding:36px;max-width:580px;width:90%;max-height:80vh;overflow-y:auto;transform:scale(.96);transition:transform var(--tb) var(--spring);position:relative}
+.coe-modal-overlay.open .coe-modal{transform:scale(1)}
+.coe-modal__close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid var(--br2);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--t2);transition:all var(--tb)}
+.coe-modal__close:hover{background:var(--rose-glow);color:var(--rose)}
+.coe-modal__title{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--t1);margin-bottom:16px;line-height:1.2}
+.coe-modal__stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.cms-item{background:rgba(255,255,255,.04);border-radius:var(--r1);padding:14px;text-align:center;border:1px solid var(--br1)}
+.cms-val{font-family:var(--fd);font-size:24px;font-weight:700;color:var(--teal);line-height:1;margin-bottom:4px}
+.cms-label{font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.8px}
+.coe-modal p{font-size:14px;color:var(--t2);line-height:1.75}
+.coe-modal h4{font-size:13px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin:18px 0 10px}
+.coe-modal ul{display:flex;flex-direction:column;gap:6px;padding-left:0}
+.coe-modal li{font-size:13px;color:var(--t2);padding-left:18px;position:relative}
+.coe-modal li::before{content:'›';position:absolute;left:0;color:var(--teal)}
+@media(max-width:1024px){.coe-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.coe-grid{grid-template-columns:1fr}.coe-modal__stats-row{grid-template-columns:repeat(2,1fr)}}

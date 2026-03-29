@@ -1,0 +1,87 @@
+/* grants.css — Grants & Funding Portal */
+
+/* HERO */
+.grants-hero { padding: 60px 26px 48px; position: relative; overflow: hidden; }
+.grants-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(245,166,35,.07), transparent); pointer-events: none; }
+.grants-hero__inner { max-width: var(--mw); margin: 0 auto; position: relative; z-index: 1; }
+.grants-hero__title { font-family: var(--fd); font-size: clamp(32px, 4.5vw, 58px); font-weight: 700; letter-spacing: -1.4px; color: var(--t1); margin: 16px 0 10px; line-height: 1.08; }
+.grants-hero__title .hi { letter-spacing: 0; }
+.grants-hero__sub { font-size: 15px; color: var(--t2); max-width: 520px; line-height: 1.75; }
+
+/* SUMMARY CARDS */
+.grants-kpi { max-width: var(--mw); margin: 0 auto; padding: 0 26px 40px; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.gkpi { background: var(--card); border: 1px solid var(--br1); border-radius: var(--r2); padding: 24px; position: relative; overflow: hidden; transition: all var(--tb) var(--ease); cursor: default; }
+.gkpi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gkc, var(--gold)); }
+.gkpi:hover { border-color: var(--br2); box-shadow: var(--sh-card); transform: translateY(-3px); }
+.gkpi__icon { font-size: 22px; margin-bottom: 12px; }
+.gkpi__val { font-family: var(--fd); font-size: 32px; font-weight: 700; color: var(--t1); line-height: 1; margin-bottom: 5px; }
+.gkpi__label { font-size: 12px; color: var(--t2); }
+.gkpi__trend { position: absolute; top: 18px; right: 18px; font-size: 10.5px; font-weight: 700; padding: 2px 9px; border-radius: 12px; background: rgba(0,229,187,.1); color: var(--teal); }
+
+/* TWO-COL LAYOUT */
+.grants-layout { max-width: var(--mw); margin: 0 auto; padding: 0 26px; display: grid; grid-template-columns: 1fr 340px; gap: 28px; margin-bottom: 60px; }
+
+/* KANBAN BOARD */
+.kanban-wrap { }
+.kanban-header { font-size: 13px; font-weight: 700; color: var(--t1); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kanban-col { background: rgba(255,255,255,.025); border: 1px solid var(--br1); border-radius: var(--r2); padding: 14px; min-height: 320px; transition: border-color var(--tb); }
+.kanban-col.drag-over { border-color: var(--teal-bdr); background: var(--teal-glow); }
+.kc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--br1); }
+.kc-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.kc-count { font-size: 11px; font-weight: 700; background: rgba(255,255,255,.08); padding: 2px 8px; border-radius: 12px; color: var(--t2); }
+.kc-cards { display: flex; flex-direction: column; gap: 10px; min-height: 200px; }
+.k-card { background: var(--card); border: 1px solid var(--br1); border-radius: var(--r1); padding: 14px; cursor: grab; transition: all var(--tb) var(--ease); user-select: none; }
+.k-card:hover { border-color: var(--teal-bdr); box-shadow: var(--sh-card); transform: translateY(-2px); }
+.k-card:active { cursor: grabbing; transform: scale(1.02); }
+.k-card.dragging { opacity: .5; }
+.k-card__title { font-size: 12.5px; font-weight: 600; color: var(--t1); margin-bottom: 7px; line-height: 1.35; }
+.k-card__agency { font-size: 11px; color: var(--teal); font-weight: 600; margin-bottom: 6px; }
+.k-card__amount { font-family: var(--fd); font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.k-card__deadline { font-size: 10.5px; color: var(--t3); display: flex; align-items: center; gap: 5px; }
+.k-card__deadline.urgent { color: var(--rose); }
+
+/* SIDEBAR */
+.grants-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+/* ACTIVE GRANTS */
+.active-grants { background: var(--card); border: 1px solid var(--br1); border-radius: var(--r2); padding: 22px; }
+.ag-title { font-size: 13px; font-weight: 700; color: var(--t1); margin-bottom: 16px; }
+.ag-item { margin-bottom: 18px; }
+.ag-item:last-child { margin-bottom: 0; }
+.ag-name { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 3px; }
+.ag-agency { font-size: 11px; color: var(--teal); margin-bottom: 8px; }
+.ag-budget-row { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--t3); margin-bottom: 5px; }
+.ag-budget-used { font-weight: 600; color: var(--gold); }
+
+/* DEADLINE TRACKER */
+.deadline-card { background: var(--card); border: 1px solid var(--br1); border-radius: var(--r2); padding: 22px; }
+.dl-title { font-size: 13px; font-weight: 700; color: var(--t1); margin-bottom: 16px; }
+.dl-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--br1); }
+.dl-item:last-child { border-bottom: none; }
+.dl-days { width: 42px; height: 42px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+.dl-days__num { font-family: var(--fd); font-size: 18px; font-weight: 700; line-height: 1; }
+.dl-days__label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.dl-body { flex: 1; min-width: 0; }
+.dl-gname { font-size: 12px; font-weight: 600; color: var(--t1); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dl-agency { font-size: 10.5px; color: var(--t3); }
+.dl-amount { font-size: 12px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+
+/* FUNDING HISTORY CHART */
+.funding-history { max-width: var(--mw); margin: 0 auto; padding: 0 26px 80px; }
+.fh-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
+.fh-title { font-size: 15px; font-weight: 700; color: var(--t1); }
+.fh-legend { display: flex; gap: 18px; }
+.fh-leg-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--t2); }
+.fh-leg-dot { width: 10px; height: 10px; border-radius: 3px; }
+.fh-chart { background: var(--card); border: 1px solid var(--br1); border-radius: var(--r2); padding: 28px; }
+.bar-chart { display: flex; align-items: flex-end; gap: 12px; height: 200px; }
+.bc-group { display: flex; align-items: flex-end; gap: 4px; flex: 1; position: relative; }
+.bc-bar { border-radius: 4px 4px 0 0; width: 100%; transition: height 1.5s cubic-bezier(.4,0,.2,1), opacity var(--tb); min-height: 4px; cursor: pointer; }
+.bc-bar:hover { opacity: .85; }
+.bc-labels { display: flex; gap: 12px; margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--br1); }
+.bc-label { flex: 1; font-size: 10.5px; color: var(--t3); text-align: center; }
+
+@media(max-width:1024px) { .grants-kpi { grid-template-columns: repeat(2,1fr); } .grants-layout { grid-template-columns: 1fr; } .kanban-board { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:600px) { .kanban-board { grid-template-columns: 1fr 1fr; } .grants-kpi { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .kanban-board { grid-template-columns: 1fr; } }
