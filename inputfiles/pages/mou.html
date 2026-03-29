@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry MoUs — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/mou.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT वेल्लोर का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+<div class="pw" style="padding-top:0">
+  <section class="mou-hero sec-bg2">
+    <div class="mou-hero__inner">
+      <div class="pill pill-g rev"><span class="pill-dot"></span><span class="en">Industry Partnerships</span><span class="hi hidden">उद्योग साझेदारी</span></div>
+      <h1 class="page-h rev d1"><span class="en">Industry Consultancy <span class="ac-g">&amp; MoUs</span></span><span class="hi hidden">उद्योग परामर्श <span class="ac-g">और MoU</span></span></h1>
+      <p class="page-sub rev d2 en">Active MoUs, research consultancy and sponsored projects with India's top corporations and global technology leaders.</p>
+      <p class="page-sub rev d2 hi hidden">भारत की शीर्ष कंपनियों और वैश्विक प्रौद्योगिकी नेताओं के साथ सक्रिय MoU, अनुसंधान परामर्श और प्रायोजित परियोजनाएं।</p>
+    </div>
+  </section>
+  <div class="mou-kpi-row">
+    <div class="mou-kpi rev d1" style="--kc:var(--gold)"><div class="mou-kpi__icon">🤝</div><div class="mou-kpi__val" data-count="127">0</div><div class="mou-kpi__label en">Active MoUs</div></div>
+    <div class="mou-kpi rev d2" style="--kc:var(--teal)"><div class="mou-kpi__icon">💰</div><div class="mou-kpi__val">₹<span data-count="89">0</span>Cr</div><div class="mou-kpi__label en">Consultancy Revenue</div></div>
+    <div class="mou-kpi rev d3" style="--kc:var(--violet)"><div class="mou-kpi__icon">🏢</div><div class="mou-kpi__val" data-count="84">0</div><div class="mou-kpi__label en">Partner Companies</div></div>
+    <div class="mou-kpi rev d4" style="--kc:var(--rose)"><div class="mou-kpi__icon">🆕</div><div class="mou-kpi__val" data-count="18">0</div><div class="mou-kpi__label en">New MoUs in 2025</div></div>
+  </div>
+  <!-- SANKEY DIAGRAM -->
+  <section class="sankey-section">
+    <div class="sankey-wrap rev">
+      <div class="sankey-title en">💰 Corporate Fund Flow — Industry → VIT Departments</div>
+      <div class="sankey-title hi hidden">💰 कॉर्पोरेट फंड प्रवाह — उद्योग → VIT विभाग</div>
+      <div class="sankey-sub en">Width of flow lines represents relative funding volume. Hover for details.</div>
+      <svg id="sankey-svg" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+  </section>
+  <!-- MoU CARDS -->
+  <section class="sec sec-bg1">
+    <div class="eyebrow rev en">Featured MoUs</div><div class="eyebrow rev hi hidden">विशेष MoU</div>
+    <h2 class="sec__h rev en">Key Industry <span class="ac-g">Partners</span></h2>
+    <h2 class="sec__h rev hi hidden">प्रमुख उद्योग <span class="ac-g">भागीदार</span></h2>
+    <div class="mou-grid">
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">💻</div>
+          <div>
+            <div class="mou-company">Intel Corporation</div>
+            <div class="mou-sector">Technology</div>
+          </div>
+        </div>
+        <div class="mou-desc en">AI Research Lab at VIT — collaborative work on edge inference hardware and neuromorphic chips.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2024</span>
+          <span>⏱️ 3 Years</span>
+          <span>💰 ₹8Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🚗</div>
+          <div>
+            <div class="mou-company">Tata Motors</div>
+            <div class="mou-sector">Automotive</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Joint research on EV battery management, predictive maintenance AI and autonomous driving testbed.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2023</span>
+          <span>⏱️ 5 Years</span>
+          <span>💰 ₹12Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status new en">🆕 New 2025</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🧬</div>
+          <div>
+            <div class="mou-company">Pfizer India</div>
+            <div class="mou-sector">Pharmaceuticals</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Drug discovery collaboration focusing on computational screening and clinical translation of novel compounds.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2025</span>
+          <span>⏱️ 3 Years</span>
+          <span>💰 ₹6Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🛸</div>
+          <div>
+            <div class="mou-company">ISRO</div>
+            <div class="mou-sector">Space Agency</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Deep Tech PhD programme, nanosatellite research, remote sensing and orbital debris management.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2019</span>
+          <span>⏱️ Ongoing</span>
+          <span>💰 ₹32Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🏗️</div>
+          <div>
+            <div class="mou-company">Larsen &amp; Toubro</div>
+            <div class="mou-sector">Infrastructure</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Smart city infrastructure, structural health monitoring and AI-based construction quality control systems.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2022</span>
+          <span>⏱️ 4 Years</span>
+          <span>💰 ₹7Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status new en">🆕 New 2025</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">💊</div>
+          <div>
+            <div class="mou-company">Sun Pharma</div>
+            <div class="mou-sector">Pharmaceuticals</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Bioavailability enhancement using nanoparticle formulations and AI-assisted clinical trial design.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2024</span>
+          <span>⏱️ 2 Years</span>
+          <span>💰 ₹4Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🏭</div>
+          <div>
+            <div class="mou-company">Bosch India</div>
+            <div class="mou-sector">Manufacturing</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Industry 4.0 implementation, digital twin systems and predictive maintenance for automotive components.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2023</span>
+          <span>⏱️ 3 Years</span>
+          <span>💰 ₹5Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status new en">🆕 New 2025</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">🌱</div>
+          <div>
+            <div class="mou-company">NTPC Green Energy</div>
+            <div class="mou-sector">Energy</div>
+          </div>
+        </div>
+        <div class="mou-desc en">Clean energy transition research — solar cell efficiency, wind energy analytics and grid integration.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2025</span>
+          <span>⏱️ 5 Years</span>
+          <span>💰 ₹9Cr</span>
+        </div>
+      </div>
+      <div class="mou-card rev">
+        <div class="mou-status active en">🟢 Active</div>
+        <div class="mou-card__top">
+          <div class="mou-logo">💡</div>
+          <div>
+            <div class="mou-company">Texas Instruments</div>
+            <div class="mou-sector">Semiconductors</div>
+          </div>
+        </div>
+        <div class="mou-desc en">VLSI design lab, embedded AI systems and power-efficient IoT chip architectures.</div>
+        <div class="mou-meta">
+          <span>📅 Signed 2021</span>
+          <span>⏱️ Ongoing</span>
+          <span>💰 ₹6Cr</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="../js/nav.js"></script>
+<script>
+/* SANKEY DIAGRAM */
+document.addEventListener('DOMContentLoaded', function(){
+  var svg = document.getElementById('sankey-svg');
+  if(!svg) return;
+  var sources = [
+    {label:'ISRO',x:40,y:20,h:80,color:'#00e5bb'},
+    {label:'TATA / L&T',x:40,y:115,h:50,color:'#f5a623'},
+    {label:'Intel / TI',x:40,y:180,h:40,color:'#a97bff'},
+    {label:'Pharma',x:40,y:235,h:35,color:'#ff5577'},
+    {label:'Others',x:40,y:284,h:28,color:'#4f9eff'},
+  ];
+  var targets = [
+    {label:'SMEC',x:660,y:20,h:55,color:'#f5a623'},
+    {label:'SENSE',x:660,y:90,h:60,color:'#00e5bb'},
+    {label:'SCOPE',x:660,y:165,h:50,color:'#a97bff'},
+    {label:'SBST',x:660,y:230,h:42,color:'#ff5577'},
+    {label:'SARC',x:660,y:287,h:28,color:'#4f9eff'},
+  ];
+  var flows = [
+    [0,0,50],[0,1,25],[1,0,30],[1,2,15],[2,2,35],[3,3,30],[4,4,20],[0,4,15],[2,1,10],[3,1,8]
+  ];
+  var html = '';
+  // Draw source bars
+  sources.forEach(function(s){
+    html += '<rect x="'+s.x+'" y="'+s.y+'" width="16" height="'+s.h+'" rx="4" fill="'+s.color+'" opacity=".9"/>';
+    html += '<text x="60" y="'+(s.y+s.h/2+5)+'" fill="#8ba4cc" font-size="11" font-family="Inter,sans-serif">'+s.label+'</text>';
+  });
+  // Draw target bars
+  targets.forEach(function(t){
+    html += '<rect x="'+t.x+'" y="'+t.y+'" width="16" height="'+t.h+'" rx="4" fill="'+t.color+'" opacity=".9"/>';
+    html += '<text x="'+(t.x-8)+'" y="'+(t.y+t.h/2+5)+'" fill="#8ba4cc" font-size="11" font-family="Inter,sans-serif" text-anchor="end">'+t.label+'</text>';
+  });
+  // Draw flows
+  flows.forEach(function(fl){
+    var s=sources[fl[0]]; var t=targets[fl[1]]; var w=fl[2]/100*6+1;
+    var sy=s.y+s.h/2; var ty=t.y+t.h/2;
+    var mx=400;
+    html += '<path d="M'+(s.x+16)+' '+sy+' C '+mx+' '+sy+', '+mx+' '+ty+', '+t.x+' '+ty+'" stroke="'+s.color+'" stroke-width="'+w+'" fill="none" opacity=".35"/>';
+  });
+  svg.innerHTML = html;
+});
+</script>
+</body>
+</html>

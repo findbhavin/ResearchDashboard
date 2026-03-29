@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/research.css">
+</head>
+<body>
+<div id="pg-veil"></div><div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📚</strong> New MoU signed with CMC Vellore for Biomedical Research</span>
+    <span class="ticker__item hi hidden"><strong>📚</strong> CMC वेल्लोर के साथ बायोमेडिकल MoU हस्ताक्षरित</span>
+    <span class="ticker__item en"><strong>🔬</strong> AI Elephant Intrusion System deployed — Lakshmi Precision Technologies</span>
+    <span class="ticker__item hi hidden"><strong>🔬</strong> AI हाथी घुसपैठ प्रणाली तैनात</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+    <span class="ticker__item en"><strong>💡</strong> Deep Tech Programme — ₹100Cr+ Funding from ISRO, DST, DRDO</span>
+    <span class="ticker__item hi hidden"><strong>💡</strong> डीप टेक — ISRO, DST, DRDO से ₹100Cr+ फंडिंग</span>
+  </div>
+</div>
+
+<div class="pw" style="padding-top:0">
+  <section class="page-hero sec-bg2">
+    <div class="ph-inner">
+      <div class="pill pill-v rev"><span class="pill-dot"></span><span class="en">Current Research</span><span class="hi hidden">वर्तमान अनुसंधान</span></div>
+      <h1 class="ph-h rev d1"><span class="en">Frontiers of <span class="ac">Discovery</span></span><span class="hi hidden"><span class="ac">खोज</span> की सीमाएं</span></h1>
+      <p class="ph-sub rev d2 en">Breakthrough research across AI, biotechnology, clean energy, aerospace, biomedical engineering and environmental science.</p>
+      <p class="ph-sub rev d2 hi hidden">AI, जैव प्रौद्योगिकी, स्वच्छ ऊर्जा, एयरोस्पेस में अग्रणी अनुसंधान।</p>
+    </div>
+  </section>
+  <section class="sec sec-bg1">
+    <div class="res-grid">
+      <div class="res-card card card-glow rev d1">
+        <div class="res-header" style="--rc:var(--teal)">
+          <div class="res-ico">🤖</div>
+          <div class="res-domain en">AI &amp; Machine Learning</div>
+          <div class="res-domain hi hidden">AI और मशीन लर्निंग</div>
+          <span class="pill pill-t" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Intelligent Systems Research</h3><h3 class="hi hidden">बुद्धिमान प्रणाली अनुसंधान</h3>
+          <p class="en">Deep learning architectures for wildlife conservation, medical imaging, autonomous vehicles and smart manufacturing.</p><p class="hi hidden">वन्यजीव संरक्षण, चिकित्सा इमेजिंग और स्मार्ट विनिर्माण के लिए डीप लर्निंग।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>68%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--teal)" data-w="68%"></div></div>
+          <div class="res-meta"><span>👤 32 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2024–2027</span><span>💰 ₹12Cr</span></div>
+        </div>
+      </div>
+      <div class="res-card card card-glow rev d2">
+        <div class="res-header" style="--rc:var(--gold)">
+          <div class="res-ico">🧬</div>
+          <div class="res-domain en">Biotechnology</div>
+          <div class="res-domain hi hidden">जैव प्रौद्योगिकी</div>
+          <span class="pill pill-g" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Cancer Therapeutics &amp; Genomics</h3><h3 class="hi hidden">कैंसर चिकित्सा और जीनोमिक्स</h3>
+          <p class="en">Ruthenium complex anti-cancer agents and CRISPR gene therapy for rare genetic disorders with CMC Vellore.</p><p class="hi hidden">रुथेनियम कॉम्प्लेक्स कैंसर-रोधी एजेंट और CRISPR जीन थेरेपी।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>45%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--gold)" data-w="45%"></div></div>
+          <div class="res-meta"><span>👤 28 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2023–2026</span><span>💰 ₹15Cr</span></div>
+        </div>
+      </div>
+      <div class="res-card card card-glow rev d3">
+        <div class="res-header" style="--rc:var(--violet)">
+          <div class="res-ico">⚡</div>
+          <div class="res-domain en">Clean Energy</div>
+          <div class="res-domain hi hidden">स्वच्छ ऊर्जा</div>
+          <span class="pill pill-v" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Next-Gen Solar &amp; Green Hydrogen</h3><h3 class="hi hidden">अगली पीढ़ी के सौर और हाइड्रोजन</h3>
+          <p class="en">Perovskite solar cells exceeding 25% efficiency and green hydrogen production via novel photocatalysts.</p><p class="hi hidden">25% से अधिक दक्षता वाले पेरोव्स्काइट सौर सेल और ग्रीन हाइड्रोजन।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>82%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--violet)" data-w="82%"></div></div>
+          <div class="res-meta"><span>👤 19 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2022–2025</span><span>💰 ₹9Cr</span></div>
+        </div>
+      </div>
+      <div class="res-card card card-glow rev d4">
+        <div class="res-header" style="--rc:var(--rose)">
+          <div class="res-ico">🛸</div>
+          <div class="res-domain en">Aerospace</div>
+          <div class="res-domain hi hidden">एयरोस्पेस</div>
+          <span class="pill pill-r" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Nanosatellite &amp; Propulsion Systems</h3><h3 class="hi hidden">नैनोसेटेलाइट और प्रणोदन प्रणाली</h3>
+          <p class="en">ISRO-funded miniaturized satellite propulsion, orbital mechanics and remote sensing for Earth observation.</p><p class="hi hidden">ISRO-वित्त पोषित लघु उपग्रह प्रणोदन और पृथ्वी अवलोकन।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>55%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--rose)" data-w="55%"></div></div>
+          <div class="res-meta"><span>👤 24 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2023–2027</span><span>💰 ₹20Cr</span></div>
+        </div>
+      </div>
+      <div class="res-card card card-glow rev d5">
+        <div class="res-header" style="--rc:var(--sapphire)">
+          <div class="res-ico">🏥</div>
+          <div class="res-domain en">Biomedical Engineering</div>
+          <div class="res-domain hi hidden">बायोमेडिकल इंजीनियरिंग</div>
+          <span class="pill pill-b" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Smart Prosthetics &amp; Neural Interfaces</h3><h3 class="hi hidden">स्मार्ट प्रोस्थेटिक्स और न्यूरल इंटरफेस</h3>
+          <p class="en">EEG-controlled prosthetic limbs and brain-computer interfaces with CMC Vellore collaboration.</p><p class="hi hidden">EEG-नियंत्रित कृत्रिम अंग और CMC वेल्लोर के साथ BCI।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>38%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--sapphire)" data-w="38%"></div></div>
+          <div class="res-meta"><span>👤 15 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2025–2028</span><span>💰 ₹8Cr</span></div>
+        </div>
+      </div>
+      <div class="res-card card card-glow rev d6">
+        <div class="res-header" style="--rc:var(--emerald)">
+          <div class="res-ico">🌿</div>
+          <div class="res-domain en">Environmental Science</div>
+          <div class="res-domain hi hidden">पर्यावरण विज्ञान</div>
+          <span class="pill pill-t" style="margin-left:auto"><span class="pill-dot"></span><span class="en">Active</span><span class="hi hidden">सक्रिय</span></span>
+        </div>
+        <div class="res-body">
+          <h3 class="en">Microplastics &amp; Air Quality Research</h3><h3 class="hi hidden">माइक्रोप्लास्टिक्स और वायु गुणवत्ता</h3>
+          <p class="en">Monitoring airborne microplastics, atmospheric transport and developing mitigation strategies for human health.</p><p class="hi hidden">वायुजनित माइक्रोप्लास्टिक्स निगरानी और मानव स्वास्थ्य संरक्षण रणनीति।</p>
+          <div class="prog-hd"><span class="en">Completion</span><span class="hi hidden">पूर्णता</span><span>72%</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--emerald)" data-w="72%"></div></div>
+          <div class="res-meta"><span>👤 11 <span class="en">Researchers</span><span class="hi hidden">शोधकर्ता</span></span><span>📅 2023–2025</span><span>💰 ₹5Cr</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<button id="stt" aria-label="Scroll to top">↑</button>
+
+<script src="../js/nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centers of Excellence — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/coe.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT वेल्लोर का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+<div class="pw" style="padding-top:0">
+  <section class="coe-hero sec-bg2">
+    <div class="coe-hero__inner">
+      <div class="pill pill-t rev"><span class="pill-dot"></span><span class="en">Research Infrastructure</span><span class="hi hidden">अनुसंधान अवसंरचना</span></div>
+      <h1 class="page-h rev d1"><span class="en">Centres of <span class="ac">Excellence</span> Hub</span><span class="hi hidden">उत्कृष्टता के <span class="ac">केंद्र</span></span></h1>
+      <p class="page-sub rev d2 en">VIT Vellore's 9 world-class research centres — click any card to explore live metrics, active projects and key researchers.</p>
+      <p class="page-sub rev d2 hi hidden">वीआईटी वेल्लोर के 9 विश्व स्तरीय अनुसंधान केंद्र — लाइव मेट्रिक्स, सक्रिय परियोजनाओं और प्रमुख शोधकर्ताओं को देखने के लिए किसी भी कार्ड पर क्लिक करें।</p>
+    </div>
+  </section>
+  <section class="sec sec-bg1">
+    <div class="coe-grid">
+      <div class="coe-card rev d1" style="--coe-c:#00e5bb" onclick="openCoE('CNMR')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🔬</div>
+          <div>
+            <div class="coe-card__name en">Centre for Nanotechnology &amp; Materials Research</div>
+            <div class="coe-card__name hi hidden">Centre for Nanotechnology &amp; Materials Research</div>
+            <div class="coe-card__abbr">CNMR · Nanotechnology</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Pioneering nano-materials for energy, medical diagnostics and environmental remediation across 12 state-of-the-art labs.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">89</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">14</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">32</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d2" style="--coe-c:#f5a623" onclick="openCoE('ARC')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🚗</div>
+          <div>
+            <div class="coe-card__name en">Automotive Research Centre</div>
+            <div class="coe-card__name hi hidden">Automotive Research Centre</div>
+            <div class="coe-card__abbr">ARC · Automotive Engineering</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">EV technology, autonomous driving, smart mobility solutions and next-gen fuel cell systems for India's automotive sector.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">56</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">8</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">18</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d3" style="--coe-c:#a97bff" onclick="openCoE('SBME')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🧠</div>
+          <div>
+            <div class="coe-card__name en">Bio-Medical Research Centre</div>
+            <div class="coe-card__name hi hidden">Bio-Medical Research Centre</div>
+            <div class="coe-card__abbr">SBME · Biomedical Engineering</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Bridging engineering and clinical medicine in partnership with CMC Vellore — prosthetics, neural interfaces and diagnostics.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">72</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">10</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">24</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d4" style="--coe-c:#22d9a0" onclick="openCoE('CCE')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">⚡</div>
+          <div>
+            <div class="coe-card__name en">Centre for Clean Energy</div>
+            <div class="coe-card__name hi hidden">Centre for Clean Energy</div>
+            <div class="coe-card__abbr">CCE · Energy & Sustainability</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Solar photovoltaics, wind energy, green hydrogen and smart grid integration for India's clean energy transition.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">44</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">6</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">16</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d5" style="--coe-c:#4f9eff" onclick="openCoE('CAIRL')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🤖</div>
+          <div>
+            <div class="coe-card__name en">Centre for AI, Robotics &amp; Learning</div>
+            <div class="coe-card__name hi hidden">Centre for AI, Robotics &amp; Learning</div>
+            <div class="coe-card__abbr">CAIRL · Artificial Intelligence</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Intelligent automation, computer vision, NLP, autonomous systems and human-robot interaction research at scale.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">98</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">9</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">31</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d6" style="--coe-c:#ff5577" onclick="openCoE('WTC')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🌊</div>
+          <div>
+            <div class="coe-card__name en">Water Technology Centre</div>
+            <div class="coe-card__name hi hidden">Water Technology Centre</div>
+            <div class="coe-card__abbr">WTC · Environmental Engineering</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Desalination, wastewater treatment, smart water quality monitoring and microplastics research for rural India.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">31</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">5</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">11</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d1" style="--coe-c:#f5a623" onclick="openCoE('SPACE')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🛸</div>
+          <div>
+            <div class="coe-card__name en">Centre for Space Technology</div>
+            <div class="coe-card__name hi hidden">Centre for Space Technology</div>
+            <div class="coe-card__abbr">SPACE · Aerospace & Space</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">ISRO-funded nanosatellite design, orbital mechanics, remote sensing payloads and propulsion research.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">48</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">7</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">19</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d2" style="--coe-c:#a97bff" onclick="openCoE('CIVC')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">🏗️</div>
+          <div>
+            <div class="coe-card__name en">Centre for Infrastructure &amp; Smart Cities</div>
+            <div class="coe-card__name hi hidden">Centre for Infrastructure &amp; Smart Cities</div>
+            <div class="coe-card__abbr">CIVC · Civil & Urban Tech</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Smart urban infrastructure, earthquake-resilient design, IoT-integrated monitoring and sustainable construction.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">38</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">6</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">14</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+      <div class="coe-card rev d3" style="--coe-c:#00e5bb" onclick="openCoE('CDBR')">
+        <div class="coe-card__header">
+          <div class="coe-card__icon">💊</div>
+          <div>
+            <div class="coe-card__name en">Centre for Drug Discovery &amp; Bio-Research</div>
+            <div class="coe-card__name hi hidden">Centre for Drug Discovery &amp; Bio-Research</div>
+            <div class="coe-card__abbr">CDBR · Drug Discovery</div>
+          </div>
+        </div>
+        <div class="coe-card__desc en">Computational drug design, target identification, CRISPR genomics and clinical translation with pharmaceutical partners.</div>
+        <div class="coe-card__stats">
+          <div><div class="coe-stat__val">61</div><div class="coe-stat__label en">Researchers</div></div>
+          <div><div class="coe-stat__val">8</div><div class="coe-stat__label en">Labs</div></div>
+          <div><div class="coe-stat__val">22</div><div class="coe-stat__label en">Projects</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MODAL -->
+  <div class="coe-modal-overlay" id="coe-overlay" onclick="closeCoE(event)">
+    <div class="coe-modal" id="coe-modal">
+      <button class="coe-modal__close" onclick="closeCoEBtn()">✕</button>
+      <div id="coe-modal-content"></div>
+    </div>
+  </div>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="../js/nav.js"></script>
+<script>
+var COE_DATA = {'CNMR':{'icon':'🔬','col':'#00e5bb','name':'Centre for Nanotechnology &amp; Materials Research','dept':'Nanotechnology','researchers':89,'labs':14,'projects':32,'funding':'₹18Cr','desc':'Pioneering nano-materials for energy, medical diagnostics and environmental remediation across 12 state-of-the-art labs.','projs':['Nano drug delivery for cancer therapy','2D material-based biosensors','Perovskite nanocomposites for solar']},'ARC':{'icon':'🚗','col':'#f5a623','name':'Automotive Research Centre','dept':'Automotive Engineering','researchers':56,'labs':8,'projects':18,'funding':'₹12Cr','desc':'EV technology, autonomous driving, smart mobility solutions and next-gen fuel cell systems for India's automotive sector.','projs':['Solid-state EV battery pack design','V2G smart charging networks','LiDAR-based ADAS for Indian roads']},'SBME':{'icon':'🧠','col':'#a97bff','name':'Bio-Medical Research Centre','dept':'Biomedical Engineering','researchers':72,'labs':10,'projects':24,'funding':'₹15Cr','desc':'Bridging engineering and clinical medicine in partnership with CMC Vellore — prosthetics, neural interfaces and diagnostics.','projs':['EEG-controlled prosthetic limbs','AI-based diabetic retinopathy detection','Smart wound-healing biosensors']},'CCE':{'icon':'⚡','col':'#22d9a0','name':'Centre for Clean Energy','dept':'Energy & Sustainability','researchers':44,'labs':6,'projects':16,'funding':'₹9Cr','desc':'Solar photovoltaics, wind energy, green hydrogen and smart grid integration for India's clean energy transition.','projs':['Perovskite solar cells >26% PCE','Photocatalytic green hydrogen reactor','AI-optimized smart micro-grids']},'CAIRL':{'icon':'🤖','col':'#4f9eff','name':'Centre for AI, Robotics &amp; Learning','dept':'Artificial Intelligence','researchers':98,'labs':9,'projects':31,'funding':'₹22Cr','desc':'Intelligent automation, computer vision, NLP, autonomous systems and human-robot interaction research at scale.','projs':['Wildlife intrusion detection with edge AI','Medical image segmentation transformers','Multi-agent robotic swarm systems']},'WTC':{'icon':'🌊','col':'#ff5577','name':'Water Technology Centre','dept':'Environmental Engineering','researchers':31,'labs':5,'projects':11,'funding':'₹5Cr','desc':'Desalination, wastewater treatment, smart water quality monitoring and microplastics research for rural India.','projs':['Low-cost membrane desalination units','IoT water quality monitoring networks','Airborne microplastics quantification']},'SPACE':{'icon':'🛸','col':'#f5a623','name':'Centre for Space Technology','dept':'Aerospace & Space','researchers':48,'labs':7,'projects':19,'funding':'₹20Cr','desc':'ISRO-funded nanosatellite design, orbital mechanics, remote sensing payloads and propulsion research.','projs':['Nanosatellite propulsion systems','Orbital debris tracking AI','Remote sensing for disaster management']},'CIVC':{'icon':'🏗️','col':'#a97bff','name':'Centre for Infrastructure &amp; Smart Cities','dept':'Civil & Urban Tech','researchers':38,'labs':6,'projects':14,'funding':'₹8Cr','desc':'Smart urban infrastructure, earthquake-resilient design, IoT-integrated monitoring and sustainable construction.','projs':['Structural health monitoring with IoT','Earthquake resilient composites','Waste-to-energy urban systems']},'CDBR':{'icon':'💊','col':'#00e5bb','name':'Centre for Drug Discovery &amp; Bio-Research','dept':'Drug Discovery','researchers':61,'labs':8,'projects':22,'funding':'₹16Cr','desc':'Computational drug design, target identification, CRISPR genomics and clinical translation with pharmaceutical partners.','projs':['Ruthenium anti-cancer complexes','CRISPR-based rare disease therapy','ML-accelerated drug screening']},};
+function openCoE(id){
+  var d=COE_DATA[id]; if(!d) return;
+  document.getElementById('coe-modal-content').innerHTML=
+    '<div style="color:'+d.col+';font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">'+d.dept+'</div>'+
+    '<div style="font-size:36px;margin-bottom:8px">'+d.icon+'</div>'+
+    '<div class="coe-modal__title">'+d.name+'</div>'+
+    '<div class="coe-modal__stats-row">'+
+      '<div class="cms-item"><div class="cms-val">'+d.researchers+'</div><div class="cms-label">Researchers</div></div>'+
+      '<div class="cms-item"><div class="cms-val">'+d.labs+'</div><div class="cms-label">Labs</div></div>'+
+      '<div class="cms-item"><div class="cms-val">'+d.projects+'</div><div class="cms-label">Projects</div></div>'+
+      '<div class="cms-item"><div class="cms-val">'+d.funding+'</div><div class="cms-label">Funding</div></div>'+
+    '</div>'+
+    '<p>'+d.desc+'</p>'+
+    '<h4>Active Research Projects</h4>'+
+    '<ul>'+d.projs.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul>';
+  document.getElementById('coe-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCoE(e){if(e.target===document.getElementById('coe-overlay')) closeCoEBtn();}
+function closeCoEBtn(){document.getElementById('coe-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeCoEBtn();});
+</script>
+</body>
+</html>

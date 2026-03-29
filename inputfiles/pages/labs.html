@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab & Equipment Booking — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/labs.css">
+</head>
+<body>
+<div id="pg-veil"></div><div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available for booking — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध है</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+
+<div class="pw" style="padding-top:0">
+
+  <section class="labs-hero sec-bg2">
+    <div class="labs-hero__inner">
+      <div class="pill pill-v rev"><span class="pill-dot"></span><span class="en">Infrastructure Tool</span><span class="hi hidden">इन्फ्रास्ट्रक्चर टूल</span></div>
+      <h1 class="labs-hero__title rev d1">
+        <span class="en">Lab &amp; Equipment <span class="ac-v">Booking</span></span>
+        <span class="hi hidden">लैब और उपकरण <span class="ac-v">बुकिंग</span></span>
+      </h1>
+      <p class="labs-hero__sub rev d2 en">Check real-time availability, book time on high-end research equipment and manage your upcoming lab sessions — all from your dashboard.</p>
+      <p class="labs-hero__sub rev d2 hi hidden">रियल-टाइम उपलब्धता जांचें, उच्च-स्तरीय अनुसंधान उपकरण पर समय बुक करें और अपने आगामी लैब सत्र प्रबंधित करें।</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="labs-stats">
+    <div class="lstat rev d1"><div class="lstat__icon">🔬</div><div class="lstat__val" data-count="48">0</div><div class="lstat__label en">Instruments Available</div><div class="lstat__label hi hidden">उपकरण उपलब्ध</div></div>
+    <div class="lstat rev d2"><div class="lstat__icon">🏛️</div><div class="lstat__val" data-count="12">0</div><div class="lstat__label en">Research Facilities</div><div class="lstat__label hi hidden">अनुसंधान सुविधाएं</div></div>
+    <div class="lstat rev d3"><div class="lstat__icon">📅</div><div class="lstat__val" data-count="284">0</div><div class="lstat__label en">Bookings This Month</div><div class="lstat__label hi hidden">इस माह बुकिंग</div></div>
+    <div class="lstat rev d4"><div class="lstat__icon">⏱️</div><div class="lstat__val" data-count="94" data-suf="%">0</div><div class="lstat__label en">Equipment Utilisation</div><div class="lstat__label hi hidden">उपकरण उपयोग दर</div></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="labs-layout">
+
+    <!-- EQUIPMENT DIRECTORY -->
+    <div class="eq-directory">
+      <input class="eq-search" type="text" placeholder="Search equipment or lab..." id="eq-search" oninput="searchEq(this.value)">
+
+      <div class="eq-card selected" id="eq-cryo" onclick="selectEq('cryo','Cryo-Electron Microscope','Centre for Nanotechnology Research')">
+        <div class="eq-card__top"><div class="eq-card__icon">🔬</div><div><div class="eq-card__name en">Cryo-Electron Microscope</div><div class="eq-card__name hi hidden">क्रायो-इलेक्ट्रॉन माइक्रोस्कोप</div><div class="eq-card__lab en">Centre for Nanotechnology Research</div><div class="eq-card__lab hi hidden">नैनोटेक्नोलॉजी अनुसंधान केंद्र</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Nanotechnology</div><div class="eq-card__dept hi hidden">नैनोटेक्नोलॉजी</div><div class="eq-status available en">Available</div><div class="eq-status available hi hidden">उपलब्ध</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-nmr" onclick="selectEq('nmr','700 MHz NMR Spectrometer','SBST Research Labs')">
+        <div class="eq-card__top"><div class="eq-card__icon">⚗️</div><div><div class="eq-card__name en">700 MHz NMR Spectrometer</div><div class="eq-card__name hi hidden">700 MHz NMR स्पेक्ट्रोमीटर</div><div class="eq-card__lab en">SBST Research Labs</div><div class="eq-card__lab hi hidden">SBST अनुसंधान लैब</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Biosciences</div><div class="eq-card__dept hi hidden">जीव विज्ञान</div><div class="eq-status available en">Available</div><div class="eq-status available hi hidden">उपलब्ध</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-mri" onclick="selectEq('mri','3T MRI Scanner (Research Grade)','Bio-Medical Research Centre')">
+        <div class="eq-card__top"><div class="eq-card__icon">🏥</div><div><div class="eq-card__name en">3T MRI Scanner — Research Grade</div><div class="eq-card__name hi hidden">3T MRI स्कैनर — शोध ग्रेड</div><div class="eq-card__lab en">Bio-Medical Research Centre</div><div class="eq-card__lab hi hidden">बायो-मेडिकल अनुसंधान केंद्र</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Biomedical</div><div class="eq-card__dept hi hidden">बायोमेडिकल</div><div class="eq-status booked en">Booked Today</div><div class="eq-status booked hi hidden">आज बुक्ड</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-3dp" onclick="selectEq('3dp','Industrial Metal 3D Printer (EOS M290)','Additive Manufacturing Lab')">
+        <div class="eq-card__top"><div class="eq-card__icon">🖨️</div><div><div class="eq-card__name en">Industrial Metal 3D Printer — EOS M290</div><div class="eq-card__name hi hidden">इंडस्ट्रियल मेटल 3D प्रिंटर — EOS M290</div><div class="eq-card__lab en">Additive Manufacturing Lab, SMEC</div><div class="eq-card__lab hi hidden">एडिटिव मैन्युफैक्चरिंग लैब, SMEC</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Mechanical</div><div class="eq-card__dept hi hidden">मैकेनिकल</div><div class="eq-status available en">Available</div><div class="eq-status available hi hidden">उपलब्ध</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-hpc" onclick="selectEq('hpc','HPC Cluster — 1024 GPU Nodes','TIFAC-CORE, VIT')">
+        <div class="eq-card__top"><div class="eq-card__icon">💻</div><div><div class="eq-card__name en">HPC Cluster — 1024 GPU Nodes</div><div class="eq-card__name hi hidden">HPC क्लस्टर — 1024 GPU नोड्स</div><div class="eq-card__lab en">TIFAC-CORE Computing Centre</div><div class="eq-card__lab hi hidden">TIFAC-CORE कंप्यूटिंग केंद्र</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">AI / Computing</div><div class="eq-card__dept hi hidden">AI / कंप्यूटिंग</div><div class="eq-status available en">Available</div><div class="eq-status available hi hidden">उपलब्ध</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-xrd" onclick="selectEq('xrd','X-Ray Diffractometer (Bruker D8)','Centre for Nanotechnology Research')">
+        <div class="eq-card__top"><div class="eq-card__icon">⚛️</div><div><div class="eq-card__name en">X-Ray Diffractometer — Bruker D8</div><div class="eq-card__name hi hidden">X-Ray डिफ्रैक्टोमीटर — Bruker D8</div><div class="eq-card__lab en">Centre for Nanotechnology Research</div><div class="eq-card__lab hi hidden">नैनोटेक्नोलॉजी अनुसंधान केंद्र</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Nanotechnology</div><div class="eq-card__dept hi hidden">नैनोटेक्नोलॉजी</div><div class="eq-status maintenance en">Maintenance</div><div class="eq-status maintenance hi hidden">रखरखाव</div></div>
+      </div>
+
+      <div class="eq-card" id="eq-solar" onclick="selectEq('solar','Solar Simulator & IV Curve Tracer','Centre for Clean Energy')">
+        <div class="eq-card__top"><div class="eq-card__icon">☀️</div><div><div class="eq-card__name en">Solar Simulator &amp; IV Curve Tracer</div><div class="eq-card__name hi hidden">सोलर सिमुलेटर और IV कर्व ट्रेसर</div><div class="eq-card__lab en">Centre for Clean Energy</div><div class="eq-card__lab hi hidden">स्वच्छ ऊर्जा केंद्र</div></div></div>
+        <div class="eq-card__bottom"><div class="eq-card__dept en">Clean Energy</div><div class="eq-card__dept hi hidden">स्वच्छ ऊर्जा</div><div class="eq-status available en">Available</div><div class="eq-status available hi hidden">उपलब्ध</div></div>
+      </div>
+
+    </div><!-- /eq-directory -->
+
+    <!-- BOOKING PANEL -->
+    <div class="booking-panel">
+
+      <!-- CALENDAR -->
+      <div class="cal-card">
+        <div class="cal-header">
+          <button class="cal-nav-btn" onclick="changeMonth(-1)">&#8249;</button>
+          <div class="cal-header__title" id="cal-title">April 2026</div>
+          <button class="cal-nav-btn" onclick="changeMonth(1)">&#8250;</button>
+        </div>
+        <div class="cal-weekdays">
+          <div class="cal-wd">Sun</div><div class="cal-wd">Mon</div><div class="cal-wd">Tue</div>
+          <div class="cal-wd">Wed</div><div class="cal-wd">Thu</div><div class="cal-wd">Fri</div><div class="cal-wd">Sat</div>
+        </div>
+        <div class="cal-days" id="cal-days"></div>
+        <div class="cal-legend">
+          <div class="cal-leg"><div class="cal-leg__dot" style="background:var(--violet)"></div><span class="en">Today</span><span class="hi hidden">आज</span></div>
+          <div class="cal-leg"><div class="cal-leg__dot" style="background:var(--teal)"></div><span class="en">Has booking</span><span class="hi hidden">बुकिंग है</span></div>
+          <div class="cal-leg"><div class="cal-leg__dot" style="background:var(--rose)"></div><span class="en">Fully booked</span><span class="hi hidden">पूरी तरह बुक</span></div>
+        </div>
+      </div>
+
+      <!-- TIME SLOTS -->
+      <div class="slots-card">
+        <div class="slots-title en" id="eq-display-name">Cryo-Electron Microscope</div>
+        <div class="slots-title hi hidden">चयनित उपकरण</div>
+        <div class="slots-date en" id="slots-date-display">Select a date to view available slots</div>
+        <div class="slots-date hi hidden">स्लॉट देखने के लिए एक तारीख चुनें</div>
+        <div class="slots-grid" id="slots-grid">
+          <div class="slot taken">08:00</div><div class="slot taken">09:00</div><div class="slot free" onclick="selectSlot(this,'10:00')">10:00</div><div class="slot free" onclick="selectSlot(this,'11:00')">11:00</div>
+          <div class="slot taken">12:00</div><div class="slot free" onclick="selectSlot(this,'13:00')">13:00</div><div class="slot free" onclick="selectSlot(this,'14:00')">14:00</div><div class="slot taken">15:00</div>
+          <div class="slot free" onclick="selectSlot(this,'16:00')">16:00</div><div class="slot free" onclick="selectSlot(this,'17:00')">17:00</div><div class="slot taken">18:00</div><div class="slot taken">19:00</div>
+        </div>
+        <div class="book-form">
+          <div class="bf-row">
+            <div class="bf-group">
+              <label class="bf-label en">Scholar Name</label><label class="bf-label hi hidden">शोधार्थी का नाम</label>
+              <input class="bf-input" type="text" id="bf-name" placeholder="Your full name">
+            </div>
+            <div class="bf-group">
+              <label class="bf-label en">Registration No.</label><label class="bf-label hi hidden">पंजीकरण संख्या</label>
+              <input class="bf-input" type="text" id="bf-reg" placeholder="e.g. 21PHD0001">
+            </div>
+          </div>
+          <div class="bf-row">
+            <div class="bf-group">
+              <label class="bf-label en">Department</label><label class="bf-label hi hidden">विभाग</label>
+              <select class="bf-input" id="bf-dept">
+                <option value="">Select dept.</option>
+                <option>SCOPE</option><option>SENSE</option><option>SBST</option>
+                <option>SMEC</option><option>SBME</option><option>SAS</option>
+                <option>TIFAC-CORE</option><option>CNR</option>
+              </select>
+            </div>
+            <div class="bf-group">
+              <label class="bf-label en">Duration</label><label class="bf-label hi hidden">अवधि</label>
+              <select class="bf-input" id="bf-dur">
+                <option>1 hour</option><option>2 hours</option><option>3 hours</option><option>4 hours</option>
+              </select>
+            </div>
+          </div>
+          <div class="bf-group">
+            <label class="bf-label en">Research Purpose</label><label class="bf-label hi hidden">अनुसंधान उद्देश्य</label>
+            <input class="bf-input" type="text" id="bf-purpose" placeholder="Brief description of your experiment...">
+          </div>
+          <button class="book-btn" onclick="submitBooking()"><span class="en">Confirm Booking →</span><span class="hi hidden">बुकिंग की पुष्टि करें →</span></button>
+          <div class="book-success hidden" id="book-success"><span style="font-size:20px">✅</span><span class="en">Booking confirmed! Check your email for details.</span><span class="hi hidden">बुकिंग की पुष्टि हो गई! विवरण के लिए अपना ईमेल देखें।</span></div>
+        </div>
+      </div>
+
+    </div><!-- /booking-panel -->
+  </div><!-- /labs-layout -->
+
+  <!-- MY BOOKINGS -->
+  <section class="my-bookings sec-bg1">
+    <div class="eyebrow en">Your Schedule</div><div class="eyebrow hi hidden">आपका शेड्यूल</div>
+    <h2 class="sec__h en">My <span class="ac-v">Upcoming Bookings</span></h2>
+    <h2 class="sec__h hi hidden">मेरी <span class="ac-v">आगामी बुकिंग</span></h2>
+    <div class="mb-grid" id="my-bookings-grid">
+      <div class="mb-card">
+        <div class="mb-card__eq en">Cryo-Electron Microscope</div><div class="mb-card__eq hi hidden">क्रायो-इलेक्ट्रॉन माइक्रोस्कोप</div>
+        <div class="mb-card__lab en">Centre for Nanotechnology</div><div class="mb-card__lab hi hidden">नैनोटेक्नोलॉजी केंद्र</div>
+        <div class="mb-card__time"><span>📅 Apr 3, 2026</span><span>⏰ 10:00 – 12:00</span><span>👤 Dr. Rajesh Kumar</span></div>
+        <div class="mb-card__status en">Confirmed</div><div class="mb-card__status hi hidden">पुष्टि की गई</div>
+        <button class="mb-cancel" onclick="cancelBooking(this)"><span class="en">✕ Cancel Booking</span><span class="hi hidden">✕ बुकिंग रद्द करें</span></button>
+      </div>
+      <div class="mb-card">
+        <div class="mb-card__eq en">HPC Cluster — 1024 GPU</div><div class="mb-card__eq hi hidden">HPC क्लस्टर — 1024 GPU</div>
+        <div class="mb-card__lab en">TIFAC-CORE Computing</div><div class="mb-card__lab hi hidden">TIFAC-CORE कंप्यूटिंग</div>
+        <div class="mb-card__time"><span>📅 Apr 5, 2026</span><span>⏰ 14:00 – 18:00</span><span>👤 Priya Nair</span></div>
+        <div class="mb-card__status en">Confirmed</div><div class="mb-card__status hi hidden">पुष्टि की गई</div>
+        <button class="mb-cancel" onclick="cancelBooking(this)"><span class="en">✕ Cancel Booking</span><span class="hi hidden">✕ बुकिंग रद्द करें</span></button>
+      </div>
+      <div class="mb-card">
+        <div class="mb-card__eq en">Solar Simulator &amp; IV Curve Tracer</div><div class="mb-card__eq hi hidden">सोलर सिमुलेटर</div>
+        <div class="mb-card__lab en">Centre for Clean Energy</div><div class="mb-card__lab hi hidden">स्वच्छ ऊर्जा केंद्र</div>
+        <div class="mb-card__time"><span>📅 Apr 7, 2026</span><span>⏰ 09:00 – 13:00</span><span>👤 Venkatesan P.</span></div>
+        <div class="mb-card__status en">Confirmed</div><div class="mb-card__status hi hidden">पुष्टि की गई</div>
+        <button class="mb-cancel" onclick="cancelBooking(this)"><span class="en">✕ Cancel Booking</span><span class="hi hidden">✕ बुकिंग रद्द करें</span></button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<button id="stt" aria-label="Scroll to top">↑</button>
+
+<script src="../js/nav.js"></script>
+<script>
+/* CALENDAR */
+var calYear=2026, calMonth=3, selectedDay=null, selectedSlot=null, selectedEq='Cryo-Electron Microscope';
+var booked=[3,8,15,22], full=[5,12,19];
+var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function renderCal(){
+  document.getElementById('cal-title').textContent = months[calMonth]+' '+calYear;
+  var grid = document.getElementById('cal-days');
+  grid.innerHTML='';
+  var first = new Date(calYear,calMonth,1).getDay();
+  var days  = new Date(calYear,calMonth+1,0).getDate();
+  var today = new Date();
+  for(var i=0;i<first;i++){
+    var e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);
+  }
+  for(var d=1;d<=days;d++){
+    var e=document.createElement('div');
+    e.className='cal-day';
+    e.textContent=d;
+    var isPast = (calYear < today.getFullYear()) || (calYear===today.getFullYear() && calMonth<today.getMonth()) || (calYear===today.getFullYear()&&calMonth===today.getMonth()&&d<today.getDate());
+    if(isPast) e.classList.add('past');
+    if(calYear===today.getFullYear()&&calMonth===today.getMonth()&&d===today.getDate()) e.classList.add('today');
+    if(booked.indexOf(d)>=0) e.classList.add('has-booking');
+    if(full.indexOf(d)>=0) e.classList.add('full-day');
+    if(d===selectedDay) e.classList.add('selected');
+    (function(day,el){ el.addEventListener('click',function(){ if(el.classList.contains('past')) return; selectedDay=day; renderCal(); document.getElementById('slots-date-display').textContent = months[calMonth]+' '+day+', '+calYear; regenerateSlots(day); }); })(d,e);
+    grid.appendChild(e);
+  }
+}
+
+function regenerateSlots(day){
+  var slots=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+  var takenSlots = full.indexOf(day)>=0 ? slots : slots.filter(function(_,i){return i%3===0||i%5===0;});
+  var grid=document.getElementById('slots-grid');
+  grid.innerHTML='';
+  slots.forEach(function(s){
+    var d=document.createElement('div');
+    var isTaken = takenSlots.indexOf(s)>=0;
+    d.className='slot '+(isTaken?'taken':'free');
+    d.textContent=s;
+    if(!isTaken) d.addEventListener('click',function(){ selectSlot(d,s); });
+    grid.appendChild(d);
+  });
+}
+
+function changeMonth(dir){ calMonth+=dir; if(calMonth>11){calMonth=0;calYear++;} if(calMonth<0){calMonth=11;calYear--;} selectedDay=null; renderCal(); }
+
+function selectSlot(el,time){
+  document.querySelectorAll('.slot.free').forEach(function(s){s.classList.remove('selected');});
+  el.classList.add('selected');
+  selectedSlot=time;
+}
+
+/* EQUIPMENT SELECTION */
+function selectEq(id, name, lab){
+  document.querySelectorAll('.eq-card').forEach(function(c){c.classList.remove('selected');});
+  var card=document.getElementById('eq-'+id);
+  if(card) card.classList.add('selected');
+  selectedEq=name;
+  document.getElementById('eq-display-name').textContent=name;
+  if(selectedDay) document.getElementById('slots-date-display').textContent=months[calMonth]+' '+selectedDay+', '+calYear;
+}
+
+function searchEq(val){
+  var v=val.toLowerCase();
+  document.querySelectorAll('.eq-card').forEach(function(c){
+    c.style.display = c.textContent.toLowerCase().includes(v)?'':'none';
+  });
+}
+
+/* BOOKING */
+function submitBooking(){
+  var name=document.getElementById('bf-name').value.trim();
+  var reg=document.getElementById('bf-reg').value.trim();
+  var dept=document.getElementById('bf-dept').value;
+  var purpose=document.getElementById('bf-purpose').value.trim();
+  if(!name||!reg||!dept||!purpose||!selectedSlot||!selectedDay){
+    alert('Please fill all fields and select a date & time slot.');
+    return;
+  }
+  var btn=document.querySelector('.book-btn');
+  btn.disabled=true; btn.style.opacity='.6';
+  setTimeout(function(){
+    document.getElementById('book-success').classList.remove('hidden');
+    btn.style.display='none';
+    addMyBooking(selectedEq, months[calMonth]+' '+selectedDay+', '+calYear, selectedSlot, name);
+    document.getElementById('bf-name').value='';
+    document.getElementById('bf-reg').value='';
+    document.getElementById('bf-purpose').value='';
+    selectedSlot=null;
+  },700);
+}
+
+function addMyBooking(eq, date, slot, who){
+  var grid=document.getElementById('my-bookings-grid');
+  var card=document.createElement('div');
+  card.className='mb-card';
+  card.innerHTML='<div class="mb-card__eq">'+eq+'</div><div class="mb-card__lab">Newly Booked</div><div class="mb-card__time"><span>📅 '+date+'</span><span>⏰ '+slot+'</span><span>👤 '+who+'</span></div><div class="mb-card__status en">Confirmed</div><button class="mb-cancel" onclick="cancelBooking(this)">✕ Cancel</button>';
+  grid.insertBefore(card, grid.firstChild);
+}
+
+function cancelBooking(btn){
+  if(confirm('Cancel this booking?')){ btn.closest('.mb-card').remove(); }
+}
+
+document.addEventListener('DOMContentLoaded', function(){ renderCal(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications & IP — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/publications.css">
+</head>
+<body>
+<div id="pg-veil"></div><div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available for booking — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध है</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+
+<div class="pw" style="padding-top:0">
+
+  <section class="pub-hero sec-bg2">
+    <div class="pub-hero__inner">
+      <div>
+        <div class="pill pill-t rev"><span class="pill-dot"></span><span class="en">Output Hub</span><span class="hi hidden">आउटपुट हब</span></div>
+        <h1 class="pub-hero__title rev d1">
+          <span class="en">Publications, Patents<br>&amp; <span class="ac">Intellectual Property</span></span>
+          <span class="hi hidden">प्रकाशन, पेटेंट<br>&amp; <span class="ac">बौद्धिक संपदा</span></span>
+        </h1>
+        <p class="pub-hero__sub rev d2 en">VIT Vellore's complete research output — papers, citations, patents and global IP reach across all departments.</p>
+        <p class="pub-hero__sub rev d2 hi hidden">वीआईटी वेल्लोर का संपूर्ण अनुसंधान आउटपुट — पेपर, उद्धरण, पेटेंट और सभी विभागों में वैश्विक IP पहुंच।</p>
+      </div>
+      <div class="rev d2">
+        <a href="contact.html" class="btn btn-p" data-nav><span class="en">Submit Your Paper →</span><span class="hi hidden">अपना पेपर सबमिट करें →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY PILLS -->
+  <div class="sum-row rev">
+    <div class="sum-pill"><div class="sum-pill__icon">📄</div><div><div class="sum-pill__val" data-count="8940">0</div><div class="sum-pill__label en">Total Publications 2024</div><div class="sum-pill__label hi hidden">कुल प्रकाशन 2024</div></div></div>
+    <div class="sum-pill"><div class="sum-pill__icon">🔗</div><div><div class="sum-pill__val" data-count="124600" data-suf="+">0</div><div class="sum-pill__label en">Total Citations</div><div class="sum-pill__label hi hidden">कुल उद्धरण</div></div></div>
+    <div class="sum-pill"><div class="sum-pill__icon">🏷️</div><div><div class="sum-pill__val" data-count="486">0</div><div class="sum-pill__label en">Patents Filed</div><div class="sum-pill__label hi hidden">पेटेंट दायर</div></div></div>
+    <div class="sum-pill"><div class="sum-pill__icon">✅</div><div><div class="sum-pill__val" data-count="218">0</div><div class="sum-pill__label en">Patents Granted</div><div class="sum-pill__label hi hidden">पेटेंट स्वीकृत</div></div></div>
+    <div class="sum-pill"><div class="sum-pill__icon">🌍</div><div><div class="sum-pill__val" data-count="46">0</div><div class="sum-pill__label en">Countries Citing VIT</div><div class="sum-pill__label hi hidden">VIT को उद्धृत करने वाले देश</div></div></div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar rev">
+    <span class="filter-bar__label en">Filter:</span><span class="filter-bar__label hi hidden">फ़िल्टर:</span>
+    <button class="filter-btn active" onclick="filterPubs(this,'all')"><span class="en">All</span><span class="hi hidden">सभी</span></button>
+    <button class="filter-btn" onclick="filterPubs(this,'engineering')"><span class="en">Engineering</span><span class="hi hidden">इंजीनियरिंग</span></button>
+    <button class="filter-btn" onclick="filterPubs(this,'science')"><span class="en">Sciences</span><span class="hi hidden">विज्ञान</span></button>
+    <button class="filter-btn" onclick="filterPubs(this,'biomedical')"><span class="en">Biomedical</span><span class="hi hidden">जैव चिकित्सा</span></button>
+    <button class="filter-btn" onclick="filterPubs(this,'ai')"><span class="en">AI / CS</span><span class="hi hidden">AI / CS</span></button>
+    <input class="filter-search" type="text" placeholder="Search publications..." id="pub-search" oninput="searchPubs(this.value)">
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="pub-layout">
+    <!-- PUBLICATIONS FEED -->
+    <div class="pub-feed" id="pub-feed">
+
+      <div class="pub-card rev d1" data-dept="ai">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">Deep Learning-Based Early Detection of Diabetic Retinopathy Using Fundus Image Analysis</div>
+          <div class="pub-card__title hi hidden">फंडस इमेज विश्लेषण का उपयोग करके डायबिटिक रेटिनोपैथी की शीघ्र पहचान</div>
+          <span class="pub-card__year">2024</span>
+        </div>
+        <div class="pub-card__journal">Nature Digital Medicine · SCI-Q1 · IF 12.4</div>
+        <div class="pub-card__authors en">Rajesh Kumar, Priya Nair, Suresh Babu V., Anika Sharma · SCOPE, VIT Vellore</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">312</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">1,840 downloads</span><span class="hi hidden">1,840 डाउनलोड</span></span>
+          <span class="pill pill-t" style="font-size:9px">AI / CS</span>
+        </div>
+      </div>
+
+      <div class="pub-card rev d2" data-dept="science">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">Ruthenium(II) p-Cymene Complexes as Anticancer Agents: Synthesis, Characterisation &amp; DNA Binding</div>
+          <div class="pub-card__title hi hidden">रुथेनियम(II) p-सायमीन कॉम्प्लेक्स कैंसर-रोधी एजेंट के रूप में: संश्लेषण और DNA बाइंडिंग</div>
+          <span class="pub-card__year">2024</span>
+        </div>
+        <div class="pub-card__journal">Journal of Medicinal Chemistry · SCI-Q1 · IF 7.3</div>
+        <div class="pub-card__authors en">Meenakshi R., Arjun Pillai, Kavitha KVN · SBST, VIT Vellore</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">189</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">940 downloads</span><span class="hi hidden">940 डाउनलोड</span></span>
+          <span class="pill pill-g" style="font-size:9px">Sciences</span>
+        </div>
+      </div>
+
+      <div class="pub-card rev d3" data-dept="engineering">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">Perovskite Solar Cells with 26.1% PCE via Passivation Engineering: A Route to Commercial Viability</div>
+          <div class="pub-card__title hi hidden">पैसिवेशन इंजीनियरिंग के माध्यम से 26.1% PCE के साथ पेरोव्स्काइट सौर सेल</div>
+          <span class="pub-card__year">2024</span>
+        </div>
+        <div class="pub-card__journal">Advanced Energy Materials · SCI-Q1 · IF 27.8</div>
+        <div class="pub-card__authors en">Venkatesan P., Lakshmi S., Ravi Shankar M. · SENSE, VIT Vellore</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">441</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">2,310 downloads</span><span class="hi hidden">2,310 डाउनलोड</span></span>
+          <span class="pill pill-v" style="font-size:9px">Engineering</span>
+        </div>
+      </div>
+
+      <div class="pub-card rev d4" data-dept="biomedical">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">EEG-Controlled Prosthetic Arm with Real-Time Motor Imagery Classification Using Transformer Networks</div>
+          <div class="pub-card__title hi hidden">ट्रांसफार्मर नेटवर्क का उपयोग करके वास्तविक समय मोटर इमेजरी वर्गीकरण के साथ EEG-नियंत्रित कृत्रिम हाथ</div>
+          <span class="pub-card__year">2024</span>
+        </div>
+        <div class="pub-card__journal">IEEE Transactions on Neural Systems · SCI-Q1 · IF 5.1</div>
+        <div class="pub-card__authors en">Arul Selvam K., Divya R., Thomas Joseph · SBME, VIT Vellore &amp; CMC</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">97</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">560 downloads</span><span class="hi hidden">560 डाउनलोड</span></span>
+          <span class="pill pill-b" style="font-size:9px">Biomedical</span>
+        </div>
+      </div>
+
+      <div class="pub-card rev d5" data-dept="ai">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">YOLOv9-Based Real-Time Wildlife Intrusion Detection with Edge AI Deployment on Raspberry Pi 5</div>
+          <div class="pub-card__title hi hidden">YOLOv9 आधारित रियल-टाइम वन्यजीव घुसपैठ पहचान</div>
+          <span class="pub-card__year">2026</span>
+        </div>
+        <div class="pub-card__journal">Expert Systems with Applications · SCI-Q1 · IF 8.7</div>
+        <div class="pub-card__authors en">Sabarish Kumar, Anand Raj, Deepa M. · TIFAC-CORE, VIT Vellore</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">23</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">1,120 downloads</span><span class="hi hidden">1,120 डाउनलोड</span></span>
+          <span class="pill pill-t" style="font-size:9px">AI / CS</span>
+        </div>
+      </div>
+
+      <div class="pub-card rev d6" data-dept="engineering">
+        <div class="pub-card__top">
+          <div class="pub-card__title en">Atmospheric Microplastic Concentration and Transport Mechanisms Over South Indian Coastal Regions</div>
+          <div class="pub-card__title hi hidden">दक्षिण भारतीय तटीय क्षेत्रों पर वायुमंडलीय माइक्रोप्लास्टिक सांद्रता और परिवहन तंत्र</div>
+          <span class="pub-card__year">2023</span>
+        </div>
+        <div class="pub-card__journal">Environmental Science &amp; Technology · SCI-Q1 · IF 11.4</div>
+        <div class="pub-card__authors en">Preethi J., Balachandran K., Senthil R. · SENSE, VIT Vellore</div>
+        <div class="pub-card__meta">
+          <span>🔗 <span class="pub-card__cite">156</span> <span class="en">citations</span><span class="hi hidden">उद्धरण</span></span>
+          <span>📥 <span class="en">780 downloads</span><span class="hi hidden">780 डाउनलोड</span></span>
+          <span class="pill pill-v" style="font-size:9px">Engineering</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="pub-sidebar">
+
+      <!-- H-INDEX CARD -->
+      <div class="hindex-card rev d1">
+        <div class="hindex-card__title en">⚡ Top Researchers by h-Index</div>
+        <div class="hindex-card__title hi hidden">⚡ h-Index द्वारा शीर्ष शोधकर्ता</div>
+        <div class="hindex-bars">
+          <div class="hib-row"><span class="hib-name">Dr. Rajesh K.</span><div class="hib-track"><div class="hib-fill" style="background:var(--teal)" data-w="85%"></div></div><span class="hib-val">h=52</span></div>
+          <div class="hib-row"><span class="hib-name">Prof. Lakshmi S.</span><div class="hib-track"><div class="hib-fill" style="background:var(--gold)" data-w="72%"></div></div><span class="hib-val">h=44</span></div>
+          <div class="hib-row"><span class="hib-name">Dr. Arjun P.</span><div class="hib-track"><div class="hib-fill" style="background:var(--violet)" data-w="62%"></div></div><span class="hib-val">h=38</span></div>
+          <div class="hib-row"><span class="hib-name">Prof. Venkatesan</span><div class="hib-track"><div class="hib-fill" style="background:var(--rose)" data-w="55%"></div></div><span class="hib-val">h=34</span></div>
+          <div class="hib-row"><span class="hib-name">Dr. Meenakshi R.</span><div class="hib-track"><div class="hib-fill" style="background:var(--sapphire)" data-w="48%"></div></div><span class="hib-val">h=29</span></div>
+          <div class="hib-row"><span class="hib-name">Dr. Arul Selvam</span><div class="hib-track"><div class="hib-fill" style="background:var(--emerald)" data-w="40%"></div></div><span class="hib-val">h=24</span></div>
+        </div>
+      </div>
+
+      <!-- CITATION HEATMAP -->
+      <div class="heatmap-card rev d2">
+        <div class="heatmap-card__title en">🌍 Citation Heatmap</div>
+        <div class="heatmap-card__title hi hidden">🌍 उद्धरण हीटमैप</div>
+        <div class="heatmap-card__sub en">Countries citing VIT research most</div>
+        <div class="heatmap-card__sub hi hidden">VIT अनुसंधान को सर्वाधिक उद्धृत करने वाले देश</div>
+        <div class="heatmap-grid">
+          <div class="hm-country"><span class="hm-flag">🇺🇸</span><span class="hm-name">USA</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--teal)" data-w="95%"></div></div><span class="hm-count">18.4K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇨🇳</span><span class="hm-name">China</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--gold)" data-w="82%"></div></div><span class="hm-count">14.2K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇬🇧</span><span class="hm-name">UK</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--violet)" data-w="64%"></div></div><span class="hm-count">9.8K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇩🇪</span><span class="hm-name">Germany</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--rose)" data-w="52%"></div></div><span class="hm-count">7.6K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇯🇵</span><span class="hm-name">Japan</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--sapphire)" data-w="44%"></div></div><span class="hm-count">6.2K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇦🇺</span><span class="hm-name">Australia</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--emerald)" data-w="36%"></div></div><span class="hm-count">4.9K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇰🇷</span><span class="hm-name">S. Korea</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--teal)" data-w="30%"></div></div><span class="hm-count">3.8K</span></div>
+          <div class="hm-country"><span class="hm-flag">🇸🇬</span><span class="hm-name">Singapore</span><div class="hm-bar-wrap"><div class="hm-bar" style="background:var(--gold)" data-w="24%"></div></div><span class="hm-count">2.9K</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PATENT TIMELINE -->
+  <section class="patent-section sec-bg1">
+    <div style="max-width:var(--mw);margin:0 auto;padding:0 26px">
+      <div class="eyebrow rev en">IP Portfolio</div><div class="eyebrow rev hi hidden">IP पोर्टफोलियो</div>
+      <h2 class="sec__h rev en">Patent <span class="ac">Timeline</span></h2>
+      <h2 class="sec__h rev hi hidden">पेटेंट <span class="ac">टाइमलाइन</span></h2>
+      <div class="patent-timeline">
+        <div class="pt-item granted rev d1">
+          <div class="pt-year">2026</div>
+          <div class="pt-content">
+            <div class="pt-name en">AI-Based Elephant Intrusion Avoidance System using Edge Computing</div>
+            <div class="pt-name hi hidden">एज कंप्यूटिंग का उपयोग करते हुए AI-आधारित हाथी घुसपैठ परिहार प्रणाली</div>
+            <div class="pt-meta"><span>🏢 Lakshmi Precision Technologies Ltd.</span><span>TIFAC-CORE, VIT</span><span>IN-2026-101234</span></div>
+          </div>
+          <span class="pt-status granted en">Granted</span><span class="pt-status granted hi hidden">स्वीकृत</span>
+        </div>
+        <div class="pt-item rev d2" style="">
+          <div class="pt-year">2025</div>
+          <div class="pt-content">
+            <div class="pt-name en">Perovskite Solar Cell with Passivation Layer for Enhanced Stability &amp; Efficiency</div>
+            <div class="pt-name hi hidden">उन्नत स्थिरता और दक्षता के लिए पैसिवेशन परत के साथ पेरोव्स्काइट सौर सेल</div>
+            <div class="pt-meta"><span>🏢 ISRO Technology Transfer</span><span>SENSE, VIT</span><span>IN-2025-087412</span></div>
+          </div>
+          <span class="pt-status pending en">Under Review</span><span class="pt-status pending hi hidden">समीक्षाधीन</span>
+        </div>
+        <div class="pt-item rev d3">
+          <div class="pt-year">2025</div>
+          <div class="pt-content">
+            <div class="pt-name en">Smart Green Hydrogen Production Reactor with Photocatalytic Membrane</div>
+            <div class="pt-name hi hidden">फोटोकैटेलिटिक मेम्ब्रेन के साथ स्मार्ट ग्रीन हाइड्रोजन उत्पादन रिएक्टर</div>
+            <div class="pt-meta"><span>🏢 DST-SERB Sponsored</span><span>SENSE, VIT</span><span>IN-2025-094781</span></div>
+          </div>
+          <span class="pt-status filed en">Filed</span><span class="pt-status filed hi hidden">दायर</span>
+        </div>
+        <div class="pt-item granted rev d4">
+          <div class="pt-year">2024</div>
+          <div class="pt-content">
+            <div class="pt-name en">EEG Signal Processing Architecture for Real-Time Motor Imagery BCI Systems</div>
+            <div class="pt-name hi hidden">रियल-टाइम मोटर इमेजरी BCI सिस्टम के लिए EEG सिग्नल प्रोसेसिंग आर्किटेक्चर</div>
+            <div class="pt-meta"><span>🏢 CMC Vellore Co-Patent</span><span>SBME, VIT</span><span>IN-2024-078234</span></div>
+          </div>
+          <span class="pt-status granted en">Granted</span><span class="pt-status granted hi hidden">स्वीकृत</span>
+        </div>
+        <div class="pt-item granted rev d5">
+          <div class="pt-year">2023</div>
+          <div class="pt-content">
+            <div class="pt-name en">Nanocomposite Material for Drug Delivery with pH-Responsive Release Mechanism</div>
+            <div class="pt-name hi hidden">pH-रिस्पॉन्सिव रिलीज मैकेनिज्म के साथ ड्रग डिलीवरी के लिए नैनोकम्पोजिट सामग्री</div>
+            <div class="pt-meta"><span>🏢 DRDO Collaborative Patent</span><span>CNR, VIT</span><span>IN-2023-056129</span></div>
+          </div>
+          <span class="pt-status granted en">Granted</span><span class="pt-status granted hi hidden">स्वीकृत</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<button id="stt" aria-label="Scroll to top">↑</button>
+
+<script src="../js/nav.js"></script>
+<script>
+function filterPubs(btn, dept) {
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-card').forEach(function(card){
+    if(dept === 'all' || card.dataset.dept === dept){
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+function searchPubs(val) {
+  var v = val.toLowerCase();
+  document.querySelectorAll('.pub-card').forEach(function(card){
+    var text = card.textContent.toLowerCase();
+    card.style.display = text.includes(v) ? '' : 'none';
+  });
+}
+// Animate hm-bars on scroll
+document.addEventListener('DOMContentLoaded', function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      en.target.querySelectorAll('[data-w]').forEach(function(b){ b.style.width = b.dataset.w; });
+      io.unobserve(en.target);
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.heatmap-card, .hindex-card').forEach(function(el){ io.observe(el); });
+});
+</script>
+</body>
+</html>

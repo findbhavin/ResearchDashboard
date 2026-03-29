@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thesis & Defense Tracker — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/thesis.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT वेल्लोर का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+<div class="pw" style="padding-top:0">
+  <section class="thesis-hero sec-bg2">
+    <div class="thesis-hero__inner">
+      <div class="pill pill-r rev"><span class="pill-dot"></span><span class="en">PhD Journey</span><span class="hi hidden">पीएचडी यात्रा</span></div>
+      <h1 class="page-h rev d1"><span class="en">Thesis &amp; Defense <span class="ac-r">Tracker</span></span><span class="hi hidden">थीसिस और डिफेंस <span class="ac-r">ट्रैकर</span></span></h1>
+      <p class="page-sub rev d2 en">Public schedule of upcoming PhD thesis defenses, synopsis presentations and open research seminars. Click Attend to RSVP.</p>
+      <p class="page-sub rev d2 hi hidden">आगामी पीएचडी थीसिस डिफेंस, सिनोप्सिस प्रेजेंटेशन और खुले अनुसंधान सेमिनार का सार्वजनिक कार्यक्रम।</p>
+    </div>
+  </section>
+  <div class="thesis-kpi-row">
+    <div class="thesis-kpi rev d1"><div class="thesis-kpi__icon">🎓</div><div class="thesis-kpi__val" data-count="8">0</div><div class="thesis-kpi__label en">Defenses This Month</div></div>
+    <div class="thesis-kpi rev d2"><div class="thesis-kpi__icon">📋</div><div class="thesis-kpi__val" data-count="12">0</div><div class="thesis-kpi__label en">Synopsis This Quarter</div></div>
+    <div class="thesis-kpi rev d3"><div class="thesis-kpi__icon">🎙️</div><div class="thesis-kpi__val" data-count="24">0</div><div class="thesis-kpi__label en">Open Seminars</div></div>
+    <div class="thesis-kpi rev d4"><div class="thesis-kpi__icon">👨‍🎓</div><div class="thesis-kpi__val" data-count="486">0</div><div class="thesis-kpi__label en">Active PhD Scholars</div></div>
+  </div>
+  <div class="thesis-controls">
+    <button class="thesis-tab on" onclick="filterThesis(this,'all')"><span class="en">All Events</span><span class="hi hidden">सभी</span></button>
+    <button class="thesis-tab" onclick="filterThesis(this,'defense')"><span class="en">🎓 Defenses</span><span class="hi hidden">🎓 डिफेंस</span></button>
+    <button class="thesis-tab" onclick="filterThesis(this,'synopsis')"><span class="en">📋 Synopsis</span><span class="hi hidden">📋 सिनोप्सिस</span></button>
+    <button class="thesis-tab" onclick="filterThesis(this,'seminar')"><span class="en">🎙️ Seminars</span><span class="hi hidden">🎙️ सेमिनार</span></button>
+  </div>
+  <div class="thesis-layout">
+    <div class="thesis-timeline" id="thesis-timeline">
+      <div class="thesis-item defense rev d1">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">3</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">10:00</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Dr. Anika Sharma</div>
+            <span class="thesis-item__type-badge type-defense en">Final PhD Defense</span>
+          </div>
+          <div class="thesis-item__title en">"Adversarial Robustness of Vision Transformers in Safety-Critical Medical Imaging Systems"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SCOPE</span>
+            <span>📍 Seminar Hall A, Research Block</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SCOPE · Guide: Dr. Rajesh Kumar · Panel: Prof. IIT-M, Prof. NTU Singapore</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-3-1000">28 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item synopsis rev d2">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">5</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">14:30</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Suresh Babu V.</div>
+            <span class="thesis-item__type-badge type-synopsis en">Synopsis Presentation</span>
+          </div>
+          <div class="thesis-item__title en">"Perovskite-Silicon Tandem Solar Cells with Passivation Engineering for >30% PCE"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SENSE</span>
+            <span>📍 Conference Room 3, MB Block</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SENSE · Guide: Prof. Venkatesan Ravi · Internal Review</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-5-1430">12 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item seminar rev d3">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">8</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">11:00</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Priya Nair</div>
+            <span class="thesis-item__type-badge type-seminar en">Open Research Seminar</span>
+          </div>
+          <div class="thesis-item__title en">"Real-Time Multi-Object Tracking in Crowded Environments Using Transformer Architectures"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SCOPE</span>
+            <span>📍 Auditorium 2, Main Block</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SCOPE · Guide: Dr. Rajesh Kumar · All Welcome</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-8-1100">45 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item defense rev d4">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">11</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">09:30</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Rahul Gupta</div>
+            <span class="thesis-item__type-badge type-defense en">Final PhD Defense</span>
+          </div>
+          <div class="thesis-item__title en">"Predictive Health Monitoring for Solid-State EV Battery Packs Using Physics-Informed Neural Networks"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SMEC</span>
+            <span>📍 Seminar Hall B, SMEC</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SMEC · Guide: Prof. Venkatesan Ravi · External: Prof. IISc Bangalore</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-11-0930">19 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item synopsis rev d5">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">14</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">15:00</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Kavitha Balachandran</div>
+            <span class="thesis-item__type-badge type-synopsis en">Synopsis Presentation</span>
+          </div>
+          <div class="thesis-item__title en">"2D MXene-Based Flexible Thermoelectric Devices for Wearable Energy Harvesting"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SENSE</span>
+            <span>📍 Room 412, SJT Block</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SENSE · Guide: Prof. Lakshmi Subramaniam</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-14-1500">8 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item seminar rev d6">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">18</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">10:30</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Divya Moorthy</div>
+            <span class="thesis-item__type-badge type-seminar en">Open Research Seminar</span>
+          </div>
+          <div class="thesis-item__title en">"Non-Invasive Blood Glucose Monitoring Using NIR Spectroscopy and CNN-Based Regression"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SBME</span>
+            <span>📍 Medical Research Hall, VIT Health Centre</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SBME · Guide: Dr. Arul Selvam · CMC Collaboration</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-18-1030">33 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item defense rev d1">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">22</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">10:00</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Rohit Nambiar</div>
+            <span class="thesis-item__type-badge type-defense en">Final PhD Defense</span>
+          </div>
+          <div class="thesis-item__title en">"Autonomous Underwater Vehicle Navigation Using Acoustic-Optical Sensor Fusion"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SMEC / SARC</span>
+            <span>📍 Seminar Hall C, TIFAC-CORE</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SMEC / SARC · Guide: Prof. Krishnamurthy N. · ISRO Review Panel</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-22-1000">22 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="thesis-item synopsis rev d2">
+        <div class="thesis-item__date-col">
+          <div class="thesis-item__day">25</div>
+          <div class="thesis-item__month">Apr</div>
+          <div class="thesis-item__time">14:00</div>
+        </div>
+        <div class="thesis-item__card">
+          <div class="thesis-item__top">
+            <div class="thesis-item__scholar">Anika Joshi</div>
+            <span class="thesis-item__type-badge type-synopsis en">Synopsis Presentation</span>
+          </div>
+          <div class="thesis-item__title en">"Cross-Lingual Sentiment Analysis for Low-Resource Indic Languages Using Adapter-Based Fine-Tuning"</div>
+          <div class="thesis-item__meta">
+            <span>🏛️ SCOPE</span>
+            <span>📍 Seminar Room 2, SCOPE Block</span>
+          </div>
+          <div class="thesis-item__meta" style="font-size:11px;color:var(--t4)">SCOPE · Guide: Dr. Rajesh Kumar</div>
+          <div class="thesis-item__actions">
+            <button class="rsvp-btn" onclick="rsvp(this)"><span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span></button>
+            <span class="rsvp-count" id="rc-25-1400">15 <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="thesis-sidebar">
+      <div class="thesis-sidebar-card">
+        <div class="tsc-title en">📅 Monthly Summary</div>
+        <div class="tsc-title hi hidden">📅 मासिक सारांश</div>
+        <div class="month-stat"><span class="month-stat__label en">PhD Defenses</span><span class="month-stat__val">8</span></div>
+        <div class="month-stat"><span class="month-stat__label en">Synopsis Presentations</span><span class="month-stat__val">12</span></div>
+        <div class="month-stat"><span class="month-stat__label en">Open Seminars</span><span class="month-stat__val">24</span></div>
+        <div class="month-stat"><span class="month-stat__label en">Thesis Submissions</span><span class="month-stat__val">6</span></div>
+        <div class="month-stat"><span class="month-stat__label en">Total RSVP Attendees</span><span class="month-stat__val" style="color:var(--teal)">182</span></div>
+      </div>
+      <div class="thesis-sidebar-card">
+        <div class="tsc-title en">👩‍🏫 Top Research Guides</div>
+        <div class="tsc-title hi hidden">👩‍🏫 शीर्ष मार्गदर्शक</div>
+        <div class="guide-item"><div class="guide-avatar">RK</div><div><div class="guide-name">Dr. Rajesh Kumar</div><div class="guide-count">SCOPE · AI/ML</div></div><div class="guide-val">12</div></div>
+        <div class="guide-item"><div class="guide-avatar">VR</div><div><div class="guide-name">Prof. Venkatesan Ravi</div><div class="guide-count">SMEC · Automotive</div></div><div class="guide-val">9</div></div>
+        <div class="guide-item"><div class="guide-avatar">LS</div><div><div class="guide-name">Prof. Lakshmi S.</div><div class="guide-count">SENSE · Energy</div></div><div class="guide-val">8</div></div>
+        <div class="guide-item"><div class="guide-avatar">AP</div><div><div class="guide-name">Dr. Arjun Pillai</div><div class="guide-count">SBST · Biotech</div></div><div class="guide-val">7</div></div>
+        <div class="guide-item"><div class="guide-avatar">AS</div><div><div class="guide-name">Dr. Arul Selvam</div><div class="guide-count">SBME · Biomedical</div></div><div class="guide-val">5</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="../js/nav.js"></script>
+<script>
+function rsvp(btn){
+  if(btn.classList.contains('rsvpd')){
+    btn.classList.remove('rsvpd');
+    btn.innerHTML='<span class="en">👋 Attend</span><span class="hi hidden">👋 भाग लें</span>';
+    var rc = btn.parentElement.querySelector('.rsvp-count');
+    if(rc){ var n=parseInt(rc.textContent); rc.innerHTML=(n-1)+' <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span>'; }
+  } else {
+    btn.classList.add('rsvpd');
+    btn.innerHTML='<span class="en">✅ Attending</span><span class="hi hidden">✅ शामिल</span>';
+    var rc = btn.parentElement.querySelector('.rsvp-count');
+    if(rc){ var n=parseInt(rc.textContent); rc.innerHTML=(n+1)+' <span class="en">attending</span><span class="hi hidden">भाग लेंगे</span>'; }
+  }
+}
+function filterThesis(btn, type){
+  document.querySelectorAll('.thesis-tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('.thesis-item').forEach(function(item){
+    item.style.display=(type==='all'||item.classList.contains(type))?'':'none';
+  });
+}
+</script>
+</body>
+</html>

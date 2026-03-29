@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grants & Funding Portal — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/grants.css">
+</head>
+<body>
+<div id="pg-veil"></div><div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available for booking — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध है</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+
+<div class="pw" style="padding-top:0">
+
+  <section class="grants-hero sec-bg2">
+    <div class="grants-hero__inner">
+      <div class="pill pill-g rev"><span class="pill-dot"></span><span class="en">Funding Portal</span><span class="hi hidden">फंडिंग पोर्टल</span></div>
+      <h1 class="grants-hero__title rev d1">
+        <span class="en">Grants &amp; <span class="ac-g">Funding</span> Portal</span>
+        <span class="hi hidden">अनुदान &amp; <span class="ac-g">फंडिंग</span> पोर्टल</span>
+      </h1>
+      <p class="grants-hero__sub rev d2 en">Track active grants, monitor budget utilisation, manage funding applications and stay ahead of every deadline — all in one place.</p>
+      <p class="grants-hero__sub rev d2 hi hidden">सक्रिय अनुदान ट्रैक करें, बजट उपयोग की निगरानी करें, फंडिंग आवेदनों का प्रबंधन करें और हर समयसीमा से आगे रहें।</p>
+    </div>
+  </section>
+
+  <!-- KPI CARDS -->
+  <div class="grants-kpi">
+    <div class="gkpi rev d1" style="--gkc:var(--gold)">
+      <div class="gkpi__icon">💰</div>
+      <div class="gkpi__val">₹<span data-count="127">0</span>Cr</div>
+      <div class="gkpi__label en">Total Active Funding</div><div class="gkpi__label hi hidden">कुल सक्रिय फंडिंग</div>
+      <div class="gkpi__trend">▲ 18%</div>
+    </div>
+    <div class="gkpi rev d2" style="--gkc:var(--teal)">
+      <div class="gkpi__icon">📋</div>
+      <div class="gkpi__val"><span data-count="48">0</span></div>
+      <div class="gkpi__label en">Active Grants</div><div class="gkpi__label hi hidden">सक्रिय अनुदान</div>
+      <div class="gkpi__trend">▲ 6</div>
+    </div>
+    <div class="gkpi rev d3" style="--gkc:var(--violet)">
+      <div class="gkpi__icon">✅</div>
+      <div class="gkpi__val"><span data-count="23">0</span></div>
+      <div class="gkpi__label en">Grants Approved (2024)</div><div class="gkpi__label hi hidden">अनुदान स्वीकृत (2024)</div>
+      <div class="gkpi__trend">▲ 12%</div>
+    </div>
+    <div class="gkpi rev d4" style="--gkc:var(--rose)">
+      <div class="gkpi__icon">⏰</div>
+      <div class="gkpi__val"><span data-count="7">0</span></div>
+      <div class="gkpi__label en">Deadlines This Month</div><div class="gkpi__label hi hidden">इस माह की समयसीमाएं</div>
+      <div class="gkpi__trend" style="background:rgba(255,85,119,.1);color:var(--rose)">Urgent</div>
+    </div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="grants-layout">
+
+    <!-- KANBAN BOARD -->
+    <div class="kanban-wrap">
+      <div class="kanban-header">
+        <span class="en">📋 Application Pipeline — Drag cards between stages</span>
+        <span class="hi hidden">📋 आवेदन पाइपलाइन — चरणों के बीच कार्ड खींचें</span>
+        <span class="pill pill-t" style="font-size:9px">Live Board</span>
+      </div>
+      <div class="kanban-board" id="kanban-board">
+
+        <!-- DRAFTING -->
+        <div class="kanban-col" data-col="drafting" ondragover="onDragOver(event)" ondrop="onDrop(event,'drafting')">
+          <div class="kc-header">
+            <span class="kc-title en" style="color:var(--t3)">✏️ Drafting</span>
+            <span class="kc-title hi hidden" style="color:var(--t3)">✏️ मसौदा</span>
+            <span class="kc-count" id="cnt-drafting">2</span>
+          </div>
+          <div class="kc-cards" id="col-drafting">
+            <div class="k-card" draggable="true" id="kc1" ondragstart="onDragStart(event,'kc1')">
+              <div class="k-card__title en">DST SERB — National Science Chair for AI in Healthcare</div>
+              <div class="k-card__title hi hidden">DST SERB — स्वास्थ्य सेवा में AI के लिए राष्ट्रीय विज्ञान अध्यक्ष</div>
+              <div class="k-card__agency">DST – SERB</div>
+              <div class="k-card__amount">₹4.8Cr</div>
+              <div class="k-card__deadline urgent">⚠️ <span class="en">Due: Apr 15, 2026</span><span class="hi hidden">समयसीमा: 15 अप्रैल 2026</span></div>
+            </div>
+            <div class="k-card" draggable="true" id="kc2" ondragstart="onDragStart(event,'kc2')">
+              <div class="k-card__title en">DRDO DRDOEx — Smart Nano-Armour Materials</div>
+              <div class="k-card__title hi hidden">DRDO DRDOEx — स्मार्ट नैनो-आर्मर सामग्री</div>
+              <div class="k-card__agency">DRDO</div>
+              <div class="k-card__amount">₹3.2Cr</div>
+              <div class="k-card__deadline">📅 <span class="en">Due: May 30, 2026</span><span class="hi hidden">समयसीमा: 30 मई 2026</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBMITTED -->
+        <div class="kanban-col" data-col="submitted" ondragover="onDragOver(event)" ondrop="onDrop(event,'submitted')">
+          <div class="kc-header">
+            <span class="kc-title en" style="color:var(--sapphire)">📤 Submitted</span>
+            <span class="kc-title hi hidden" style="color:var(--sapphire)">📤 सबमिट</span>
+            <span class="kc-count" id="cnt-submitted">2</span>
+          </div>
+          <div class="kc-cards" id="col-submitted">
+            <div class="k-card" draggable="true" id="kc3" ondragstart="onDragStart(event,'kc3')">
+              <div class="k-card__title en">ISRO RESPOND — Nanosatellite Propulsion Research</div>
+              <div class="k-card__title hi hidden">ISRO RESPOND — नैनोसेटेलाइट प्रणोदन अनुसंधान</div>
+              <div class="k-card__agency">ISRO</div>
+              <div class="k-card__amount">₹6.4Cr</div>
+              <div class="k-card__deadline">📅 <span class="en">Submitted: Mar 10, 2026</span><span class="hi hidden">सबमिट: 10 मार्च 2026</span></div>
+            </div>
+            <div class="k-card" draggable="true" id="kc4" ondragstart="onDragStart(event,'kc4')">
+              <div class="k-card__title en">EU Horizon Europe — Green Hydrogen &amp; Fuel Cells</div>
+              <div class="k-card__title hi hidden">EU Horizon Europe — ग्रीन हाइड्रोजन और फ्यूल सेल</div>
+              <div class="k-card__agency">EU Horizon</div>
+              <div class="k-card__amount">€2.1M</div>
+              <div class="k-card__deadline">📅 <span class="en">Submitted: Feb 28, 2026</span><span class="hi hidden">सबमिट: 28 फरवरी 2026</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UNDER REVIEW -->
+        <div class="kanban-col" data-col="review" ondragover="onDragOver(event)" ondrop="onDrop(event,'review')">
+          <div class="kc-header">
+            <span class="kc-title en" style="color:var(--gold)">🔍 Under Review</span>
+            <span class="kc-title hi hidden" style="color:var(--gold)">🔍 समीक्षाधीन</span>
+            <span class="kc-count" id="cnt-review">3</span>
+          </div>
+          <div class="kc-cards" id="col-review">
+            <div class="k-card" draggable="true" id="kc5" ondragstart="onDragStart(event,'kc5')">
+              <div class="k-card__title en">DBT-BIRAC — Cancer Biomarker Discovery Platform</div>
+              <div class="k-card__title hi hidden">DBT-BIRAC — कैंसर बायोमार्कर डिस्कवरी प्लेटफॉर्म</div>
+              <div class="k-card__agency">DBT – BIRAC</div>
+              <div class="k-card__amount">₹5.1Cr</div>
+              <div class="k-card__deadline">🔍 <span class="en">In Review since Jan 2026</span><span class="hi hidden">जनवरी 2026 से समीक्षाधीन</span></div>
+            </div>
+            <div class="k-card" draggable="true" id="kc6" ondragstart="onDragStart(event,'kc6')">
+              <div class="k-card__title en">DST-NRF (India-South Africa) — Clean Water Tech</div>
+              <div class="k-card__title hi hidden">DST-NRF — स्वच्छ जल प्रौद्योगिकी</div>
+              <div class="k-card__agency">DST – International</div>
+              <div class="k-card__amount">₹2.8Cr</div>
+              <div class="k-card__deadline">🔍 <span class="en">In Review since Feb 2026</span><span class="hi hidden">फरवरी 2026 से समीक्षाधीन</span></div>
+            </div>
+            <div class="k-card" draggable="true" id="kc7" ondragstart="onDragStart(event,'kc7')">
+              <div class="k-card__title en">ATAL AICTE — EV Battery Management AI System</div>
+              <div class="k-card__title hi hidden">ATAL AICTE — EV बैटरी प्रबंधन AI प्रणाली</div>
+              <div class="k-card__agency">AICTE – ATAL</div>
+              <div class="k-card__amount">₹1.4Cr</div>
+              <div class="k-card__deadline">🔍 <span class="en">Panel interview: Apr 8</span><span class="hi hidden">पैनल साक्षात्कार: 8 अप्रैल</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APPROVED -->
+        <div class="kanban-col" data-col="approved" ondragover="onDragOver(event)" ondrop="onDrop(event,'approved')">
+          <div class="kc-header">
+            <span class="kc-title en" style="color:var(--teal)">✅ Approved</span>
+            <span class="kc-title hi hidden" style="color:var(--teal)">✅ स्वीकृत</span>
+            <span class="kc-count" id="cnt-approved">2</span>
+          </div>
+          <div class="kc-cards" id="col-approved">
+            <div class="k-card" draggable="true" id="kc8" ondragstart="onDragStart(event,'kc8')" style="border-color:rgba(0,229,187,.25)">
+              <div class="k-card__title en">ISRO — Deep Tech PhD: Orbital Debris Management</div>
+              <div class="k-card__title hi hidden">ISRO — डीप टेक पीएचडी: ऑर्बिटल डेब्रिस प्रबंधन</div>
+              <div class="k-card__agency">ISRO – Deep Tech</div>
+              <div class="k-card__amount">₹8.2Cr</div>
+              <div class="k-card__deadline" style="color:var(--teal)">✅ <span class="en">Active: Jan 2026</span><span class="hi hidden">सक्रिय: जनवरी 2026</span></div>
+            </div>
+            <div class="k-card" draggable="true" id="kc9" ondragstart="onDragStart(event,'kc9')" style="border-color:rgba(0,229,187,.25)">
+              <div class="k-card__title en">DST SERB — Core Research Grant: Quantum Materials</div>
+              <div class="k-card__title hi hidden">DST SERB — कोर रिसर्च ग्रांट: क्वांटम सामग्री</div>
+              <div class="k-card__agency">DST – SERB CRG</div>
+              <div class="k-card__amount">₹3.6Cr</div>
+              <div class="k-card__deadline" style="color:var(--teal)">✅ <span class="en">Active: Dec 2025</span><span class="hi hidden">सक्रिय: दिसंबर 2025</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /kanban-board -->
+    </div><!-- /kanban-wrap -->
+
+    <!-- SIDEBAR -->
+    <div class="grants-sidebar">
+
+      <!-- ACTIVE GRANTS PROGRESS -->
+      <div class="active-grants rev d1">
+        <div class="ag-title en">📊 Budget Utilisation</div>
+        <div class="ag-title hi hidden">📊 बजट उपयोग</div>
+
+        <div class="ag-item">
+          <div class="ag-name en">ISRO Deep Tech — Orbital Debris</div>
+          <div class="ag-name hi hidden">ISRO डीप टेक — ऑर्बिटल डेब्रिस</div>
+          <div class="ag-agency">ISRO · ₹8.2Cr total</div>
+          <div class="ag-budget-row"><span class="en">Used: <span class="ag-budget-used">₹3.1Cr (38%)</span></span><span class="hi hidden">उपयोग: <span class="ag-budget-used">₹3.1Cr (38%)</span></span><span class="en">Remaining: ₹5.1Cr</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--gold)" data-w="38%"></div></div>
+        </div>
+
+        <div class="ag-item">
+          <div class="ag-name en">DST SERB — Quantum Materials</div>
+          <div class="ag-name hi hidden">DST SERB — क्वांटम सामग्री</div>
+          <div class="ag-agency">DST · ₹3.6Cr total</div>
+          <div class="ag-budget-row"><span class="en">Used: <span class="ag-budget-used">₹2.4Cr (67%)</span></span><span>Remaining: ₹1.2Cr</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--rose)" data-w="67%"></div></div>
+        </div>
+
+        <div class="ag-item">
+          <div class="ag-name en">EU Horizon — Photovoltaics (2023)</div>
+          <div class="ag-name hi hidden">EU Horizon — फोटोवोल्टाइक्स</div>
+          <div class="ag-agency">EU · ₹18.4Cr total</div>
+          <div class="ag-budget-row"><span class="en">Used: <span class="ag-budget-used">₹7.8Cr (42%)</span></span><span>Remaining: ₹10.6Cr</span></div>
+          <div class="prog-track"><div class="prog-fill" style="background:var(--teal)" data-w="42%"></div></div>
+        </div>
+      </div>
+
+      <!-- UPCOMING DEADLINES -->
+      <div class="deadline-card rev d2">
+        <div class="dl-title en">⏰ Upcoming Deadlines</div>
+        <div class="dl-title hi hidden">⏰ आगामी समयसीमाएं</div>
+
+        <div class="dl-item">
+          <div class="dl-days" style="background:rgba(255,85,119,.12);color:var(--rose)"><div class="dl-days__num">18</div><div class="dl-days__label en">days</div><div class="dl-days__label hi hidden">दिन</div></div>
+          <div class="dl-body"><div class="dl-gname en">DST SERB — Science Chair</div><div class="dl-gname hi hidden">DST SERB — विज्ञान अध्यक्ष</div><div class="dl-agency">₹4.8Cr · Apr 15</div></div>
+          <div class="dl-amount">₹4.8Cr</div>
+        </div>
+        <div class="dl-item">
+          <div class="dl-days" style="background:rgba(245,166,35,.12);color:var(--gold)"><div class="dl-days__num">38</div><div class="dl-days__label en">days</div><div class="dl-days__label hi hidden">दिन</div></div>
+          <div class="dl-body"><div class="dl-gname en">AICTE ATAL — Panel Interview</div><div class="dl-gname hi hidden">AICTE ATAL — पैनल साक्षात्कार</div><div class="dl-agency">₹1.4Cr · Apr 8</div></div>
+          <div class="dl-amount">₹1.4Cr</div>
+        </div>
+        <div class="dl-item">
+          <div class="dl-days" style="background:rgba(0,229,187,.1);color:var(--teal)"><div class="dl-days__num">63</div><div class="dl-days__label en">days</div><div class="dl-days__label hi hidden">दिन</div></div>
+          <div class="dl-body"><div class="dl-gname en">DRDO DRDOEx — Nano Armour</div><div class="dl-gname hi hidden">DRDO — नैनो आर्मर</div><div class="dl-agency">₹3.2Cr · May 30</div></div>
+          <div class="dl-amount">₹3.2Cr</div>
+        </div>
+        <div class="dl-item">
+          <div class="dl-days" style="background:rgba(79,158,255,.1);color:var(--sapphire)"><div class="dl-days__num">95</div><div class="dl-days__label en">days</div><div class="dl-days__label hi hidden">दिन</div></div>
+          <div class="dl-body"><div class="dl-gname en">ICMR — Biomedical Device Grant</div><div class="dl-gname hi hidden">ICMR — बायोमेडिकल डिवाइस ग्रांट</div><div class="dl-agency">₹2.2Cr · Jul 1</div></div>
+          <div class="dl-amount">₹2.2Cr</div>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+  </div><!-- /grants-layout -->
+
+  <!-- HISTORICAL FUNDING CHART -->
+  <section class="funding-history sec-bg1">
+    <div style="max-width:var(--mw);margin:0 auto;padding:0 26px 80px">
+      <div class="eyebrow rev en">Funding History</div><div class="eyebrow rev hi hidden">फंडिंग इतिहास</div>
+      <h2 class="sec__h rev en">Annual Funding <span class="ac-g">Growth</span></h2>
+      <h2 class="sec__h rev hi hidden">वार्षिक फंडिंग <span class="ac-g">वृद्धि</span></h2>
+      <div class="fh-chart rev">
+        <div class="fh-header">
+          <div class="fh-title en">Total Research Funding 2019–2024 (₹ Crore)</div>
+          <div class="fh-title hi hidden">कुल अनुसंधान फंडिंग 2019–2024 (₹ करोड़)</div>
+          <div class="fh-legend">
+            <div class="fh-leg-item"><div class="fh-leg-dot" style="background:var(--gold)"></div><span class="en">Govt. Funding</span><span class="hi hidden">सरकारी फंडिंग</span></div>
+            <div class="fh-leg-item"><div class="fh-leg-dot" style="background:var(--teal)"></div><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></div>
+          </div>
+        </div>
+        <div class="bar-chart" id="fund-chart">
+          <!-- Bars rendered by JS -->
+        </div>
+        <div class="bc-labels">
+          <div class="bc-label">2019</div>
+          <div class="bc-label">2020</div>
+          <div class="bc-label">2021</div>
+          <div class="bc-label">2022</div>
+          <div class="bc-label">2023</div>
+          <div class="bc-label">2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<button id="stt" aria-label="Scroll to top">↑</button>
+
+<script src="../js/nav.js"></script>
+<script>
+/* KANBAN DRAG AND DROP */
+var draggingId = null;
+function onDragStart(e, id){ draggingId = id; e.target.classList.add('dragging'); }
+function onDragOver(e){ e.preventDefault(); e.currentTarget.classList.add('drag-over'); }
+function onDrop(e, col){
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  var card = document.getElementById(draggingId);
+  if(card){
+    document.getElementById('col-'+col).appendChild(card);
+    card.classList.remove('dragging');
+    updateCounts();
+  }
+  draggingId = null;
+}
+document.addEventListener('dragend', function(){ document.querySelectorAll('.k-card').forEach(function(c){ c.classList.remove('dragging'); }); document.querySelectorAll('.kanban-col').forEach(function(c){ c.classList.remove('drag-over'); }); });
+
+function updateCounts(){
+  ['drafting','submitted','review','approved'].forEach(function(col){
+    var el = document.getElementById('cnt-'+col);
+    if(el) el.textContent = document.getElementById('col-'+col).querySelectorAll('.k-card').length;
+  });
+}
+
+/* BAR CHART */
+document.addEventListener('DOMContentLoaded', function(){
+  var data = [
+    {govt:42, intl:8},
+    {govt:48, intl:9},
+    {govt:55, intl:12},
+    {govt:68, intl:16},
+    {govt:85, intl:22},
+    {govt:107, intl:20}
+  ];
+  var maxVal = 130;
+  var chart = document.getElementById('fund-chart');
+  if(!chart) return;
+  chart.innerHTML = '';
+  data.forEach(function(d){
+    var group = document.createElement('div');
+    group.className = 'bc-group';
+    var b1 = document.createElement('div');
+    b1.className = 'bc-bar';
+    b1.style.background = 'var(--gold)';
+    b1.style.height = '0px';
+    b1.title = 'Govt: ₹'+d.govt+'Cr';
+    var b2 = document.createElement('div');
+    b2.className = 'bc-bar';
+    b2.style.background = 'var(--teal)';
+    b2.style.height = '0px';
+    b2.title = 'Intl: ₹'+d.intl+'Cr';
+    group.appendChild(b1);
+    group.appendChild(b2);
+    chart.appendChild(group);
+    var io = new IntersectionObserver(function(ens){
+      ens.forEach(function(en){
+        if(!en.isIntersecting) return;
+        setTimeout(function(){
+          b1.style.height = Math.round(d.govt/maxVal*200)+'px';
+          b2.style.height = Math.round(d.intl/maxVal*200)+'px';
+        }, 100);
+        io.unobserve(group);
+      });
+    },{threshold:0.3});
+    io.observe(group);
+  });
+});
+</script>
+</body>
+</html>

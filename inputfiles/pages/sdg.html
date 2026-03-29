@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDG Impact — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/sdg.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT वेल्लोर का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+<div class="pw" style="padding-top:0">
+  <section class="sdg-hero sec-bg2">
+    <div class="sdg-hero__inner">
+      <div class="pill pill-t rev"><span class="pill-dot"></span><span class="en">Global Impact</span><span class="hi hidden">वैश्विक प्रभाव</span></div>
+      <h1 class="page-h rev d1"><span class="en">SDG <span class="ac">Impact</span> Dashboard</span><span class="hi hidden">SDG <span class="ac">प्रभाव</span> डैशबोर्ड</span></h1>
+      <p class="page-sub rev d2 en">See how VIT Vellore's research maps to the 17 UN Sustainable Development Goals. Click any goal to filter relevant projects, papers and patents.</p>
+      <p class="page-sub rev d2 hi hidden">देखें कि VIT वेल्लोर का अनुसंधान 17 UN सतत विकास लक्ष्यों से कैसे जुड़ता है।</p>
+    </div>
+  </section>
+  <div class="sdg-stats-row">
+    <div class="sdg-stat rev d1"><div class="sdg-stat__val" data-count="17">0</div><div class="sdg-stat__label en">SDGs Addressed</div></div>
+    <div class="sdg-stat rev d2"><div class="sdg-stat__val" data-count="312">0</div><div class="sdg-stat__label en">Aligned Projects</div></div>
+    <div class="sdg-stat rev d3"><div class="sdg-stat__val" data-count="4280">0</div><div class="sdg-stat__label en">SDG Publications</div></div>
+    <div class="sdg-stat rev d4"><div class="sdg-stat__val" data-count="89">0</div><div class="sdg-stat__label en">Partner Nations</div></div>
+  </div>
+  <section class="sdg-section">
+    <div class="sdg-eyebrow en">Interactive SDG Mapper</div>
+    <h2 class="sdg-title en">Click a Goal to <span class="ac">Filter</span> Research</h2>
+    <h2 class="sdg-title hi hidden">एक लक्ष्य पर क्लिक करें अनुसंधान <span class="ac">फ़िल्टर</span> करने के लिए</h2>
+    <p class="sdg-subtitle en">Each tile represents one of the 17 UN SDGs. VIT's research spans all 17 goals, from Clean Energy (SDG 7) to Good Health (SDG 3) and Climate Action (SDG 13).</p>
+    <div class="sdg-grid"><div class="sdg-tile rev" style="background:rgba(229,36,59,.18)" onclick="showSDG('1')" id="sdg-1" title="SDG 1: No Poverty"><div class="sdg-tile__num">SDG 1</div><div class="sdg-tile__icon">🏚️</div><div class="sdg-tile__label">No Poverty</div></div><div class="sdg-tile rev" style="background:rgba(221,166,58,.18)" onclick="showSDG('2')" id="sdg-2" title="SDG 2: Zero Hunger"><div class="sdg-tile__num">SDG 2</div><div class="sdg-tile__icon">🌾</div><div class="sdg-tile__label">Zero Hunger</div></div><div class="sdg-tile rev" style="background:rgba(76,159,56,.18)" onclick="showSDG('3')" id="sdg-3" title="SDG 3: Good Health"><div class="sdg-tile__num">SDG 3</div><div class="sdg-tile__icon">❤️</div><div class="sdg-tile__label">Good Health</div></div><div class="sdg-tile rev" style="background:rgba(197,25,45,.18)" onclick="showSDG('4')" id="sdg-4" title="SDG 4: Quality Education"><div class="sdg-tile__num">SDG 4</div><div class="sdg-tile__icon">📚</div><div class="sdg-tile__label">Quality Education</div></div><div class="sdg-tile rev" style="background:rgba(255,58,33,.18)" onclick="showSDG('5')" id="sdg-5" title="SDG 5: Gender Equality"><div class="sdg-tile__num">SDG 5</div><div class="sdg-tile__icon">⚖️</div><div class="sdg-tile__label">Gender Equality</div></div><div class="sdg-tile rev" style="background:rgba(38,189,226,.18)" onclick="showSDG('6')" id="sdg-6" title="SDG 6: Clean Water"><div class="sdg-tile__num">SDG 6</div><div class="sdg-tile__icon">💧</div><div class="sdg-tile__label">Clean Water</div></div><div class="sdg-tile rev" style="background:rgba(252,195,11,.18)" onclick="showSDG('7')" id="sdg-7" title="SDG 7: Clean Energy"><div class="sdg-tile__num">SDG 7</div><div class="sdg-tile__icon">⚡</div><div class="sdg-tile__label">Clean Energy</div></div><div class="sdg-tile rev" style="background:rgba(162,25,66,.18)" onclick="showSDG('8')" id="sdg-8" title="SDG 8: Decent Work"><div class="sdg-tile__num">SDG 8</div><div class="sdg-tile__icon">📈</div><div class="sdg-tile__label">Decent Work</div></div><div class="sdg-tile rev" style="background:rgba(253,105,37,.18)" onclick="showSDG('9')" id="sdg-9" title="SDG 9: Industry &amp; Innovation"><div class="sdg-tile__num">SDG 9</div><div class="sdg-tile__icon">🏭</div><div class="sdg-tile__label">Industry &amp; Innovation</div></div><div class="sdg-tile rev" style="background:rgba(221,19,103,.18)" onclick="showSDG('10')" id="sdg-10" title="SDG 10: Reduced Inequalities"><div class="sdg-tile__num">SDG 10</div><div class="sdg-tile__icon">🤝</div><div class="sdg-tile__label">Reduced Inequalities</div></div><div class="sdg-tile rev" style="background:rgba(253,157,36,.18)" onclick="showSDG('11')" id="sdg-11" title="SDG 11: Sustainable Cities"><div class="sdg-tile__num">SDG 11</div><div class="sdg-tile__icon">🏙️</div><div class="sdg-tile__label">Sustainable Cities</div></div><div class="sdg-tile rev" style="background:rgba(191,139,46,.18)" onclick="showSDG('12')" id="sdg-12" title="SDG 12: Responsible Consumption"><div class="sdg-tile__num">SDG 12</div><div class="sdg-tile__icon">♻️</div><div class="sdg-tile__label">Responsible Consumption</div></div><div class="sdg-tile rev" style="background:rgba(63,126,68,.18)" onclick="showSDG('13')" id="sdg-13" title="SDG 13: Climate Action"><div class="sdg-tile__num">SDG 13</div><div class="sdg-tile__icon">🌍</div><div class="sdg-tile__label">Climate Action</div></div><div class="sdg-tile rev" style="background:rgba(10,151,217,.18)" onclick="showSDG('14')" id="sdg-14" title="SDG 14: Life Below Water"><div class="sdg-tile__num">SDG 14</div><div class="sdg-tile__icon">🐠</div><div class="sdg-tile__label">Life Below Water</div></div><div class="sdg-tile rev" style="background:rgba(86,192,43,.18)" onclick="showSDG('15')" id="sdg-15" title="SDG 15: Life on Land"><div class="sdg-tile__num">SDG 15</div><div class="sdg-tile__icon">🌿</div><div class="sdg-tile__label">Life on Land</div></div><div class="sdg-tile rev" style="background:rgba(0,104,157,.18)" onclick="showSDG('16')" id="sdg-16" title="SDG 16: Peace &amp; Justice"><div class="sdg-tile__num">SDG 16</div><div class="sdg-tile__icon">🕊️</div><div class="sdg-tile__label">Peace &amp; Justice</div></div><div class="sdg-tile rev" style="background:rgba(25,72,106,.18)" onclick="showSDG('17')" id="sdg-17" title="SDG 17: Partnerships"><div class="sdg-tile__num">SDG 17</div><div class="sdg-tile__icon">🤲</div><div class="sdg-tile__label">Partnerships</div></div></div>
+    <div class="sdg-detail" id="sdg-detail"></div>
+  </section>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="../js/nav.js"></script>
+<script>
+var SDG_DATA = {
+  '7':{name:'Clean Energy',icon:'⚡',color:'#FCC30B',projects:[['⚡','Perovskite Solar Cells >26% PCE','SENSE · ₹9Cr · 82% complete'],['💨','AI-Optimised Wind Farm Control','SMEC · ₹4Cr · 55% complete'],['🔋','Green Hydrogen via Photocatalysis','SENSE · ₹6Cr · 70% complete']],kpis:[['₹19Cr','Funding','#FCC30B'],['3','Projects','#00e5bb'],['180','Papers','#a97bff']]},
+  '3':{name:'Good Health',icon:'❤️',color:'#4C9F38',projects:[['🧬','Ruthenium Anti-Cancer Complexes','SBST · ₹15Cr · 45% complete'],['🤖','AI Diabetic Retinopathy Detection','SCOPE · ₹12Cr · 68% complete'],['🦾','EEG Prosthetic Arm + BCI','SBME · ₹8Cr · 38% complete']],kpis:[['₹35Cr','Funding','#4C9F38'],['8','Projects','#00e5bb'],['412','Papers','#a97bff']]},
+  '13':{name:'Climate Action',icon:'🌍',color:'#3F7E44',projects:[['🌊','Microplastics in Coastal Air','SENSE · ₹5Cr · 72% complete'],['☀️','Smart Micro-Grid Integration','SEEE · ₹7Cr · 60% complete'],['🌱','Carbon-Negative Cement','SCSR · ₹3Cr · 40% complete']],kpis:[['₹15Cr','Funding','#3F7E44'],['5','Projects','#00e5bb'],['96','Papers','#a97bff']]},
+  '9':{name:'Industry & Innovation',icon:'🏭',color:'#FD6925',projects:[['🛸','Nanosatellite Propulsion','SARC · ₹20Cr · 55% complete'],['🤖','Wildlife AI Edge System','TIFAC · ₹4Cr · 90% complete'],['🏭','Smart Manufacturing with Digital Twins','SMEC · ₹6Cr · 48% complete']],kpis:[['₹30Cr','Funding','#FD6925'],['7','Projects','#00e5bb'],['320','Papers','#a97bff']]},
+  '6':{name:'Clean Water',icon:'💧',color:'#26BDE2',projects:[['🌊','Low-Cost Membrane Desalination','WTC · ₹3Cr · 65% complete'],['📡','IoT Water Quality Monitoring','WTC · ₹2Cr · 80% complete']],kpis:[['₹5Cr','Funding','#26BDE2'],['2','Projects','#00e5bb'],['42','Papers','#a97bff']]},
+};
+var currentSDG = null;
+function showSDG(num){
+  document.querySelectorAll('.sdg-tile').forEach(function(t){ t.classList.remove('active'); });
+  var tile = document.getElementById('sdg-'+num);
+  if(tile) tile.classList.add('active');
+  var d = SDG_DATA[num];
+  var panel = document.getElementById('sdg-detail');
+  if(!d){
+    panel.innerHTML='<div style="text-align:center;padding:32px;color:var(--t3)"><div style="font-size:32px;margin-bottom:12px">🔬</div><div style="font-size:14px">VIT research addresses SDG '+num+' across multiple departments.<br>Detailed mapping coming soon.</div></div>';
+    panel.classList.add('visible');
+    panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    return;
+  }
+  var projsHtml = d.projects.map(function(p){ return '<div class="sdg-pj-item"><div class="sdg-pj-item__icon">'+p[0]+'</div><div><div class="sdg-pj-item__title">'+p[1]+'</div><div class="sdg-pj-item__meta">'+p[2]+'</div></div></div>'; }).join('');
+  var kpisHtml = d.kpis.map(function(k){ return '<div class="sdg-kpi"><div class="sdg-kpi__val" style="color:'+k[2]+'">'+k[0]+'</div><div class="sdg-kpi__label">'+k[1]+'</div></div>'; }).join('');
+  panel.innerHTML='<div class="sdg-detail__header"><div class="sdg-detail__icon">'+d.icon+'</div><div><div class="sdg-detail__num" style="color:'+d.color+'">SDG '+num+'</div><div class="sdg-detail__name">'+d.name+'</div></div></div><div class="sdg-detail__body"><div class="sdg-detail__projects"><div class="sdg-detail__pj-title">Active VIT Projects</div>'+projsHtml+'</div><div class="sdg-detail__impact"><div class="sdg-detail__imp-title">Impact Numbers</div>'+kpisHtml+'</div></div>';
+  panel.classList.remove('visible');
+  setTimeout(function(){ panel.classList.add('visible'); },10);
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

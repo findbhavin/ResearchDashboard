@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholar Directory — VIT Research Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/scholars.css">
+</head>
+<body>
+<div id="pg-veil"></div>
+<div class="lbar">
+  <div class="lbar__in">
+    <div class="lbar__left">
+      <span class="lbar__dot"></span>
+      <span class="lbar__name en">VIT Vellore Research Dashboard</span>
+      <span class="lbar__name hi hidden">वीआईटी अनुसंधान डैशबोर्ड</span>
+    </div>
+    <div class="lbar__right">
+      <button class="lbtn on" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn" id="btnHI" onclick="setLang('hi')">हि</button>
+    </div>
+  </div>
+</div>
+<nav class="navbar" id="main-nav">
+  <div class="nav__in">
+    <a class="nav-logo" href="../index.html" data-nav>
+      <div class="nav-logo__mark">V</div>
+      <div class="nav-logo__text">
+        <span class="nav-logo__title en">VIT Research</span>
+        <span class="nav-logo__title hi hidden">वीआईटी अनुसंधान</span>
+        <span class="nav-logo__sub">Vellore Campus</span>
+      </div>
+    </a>
+    <div class="nav__links">
+      <a class="nav__a" href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+      <a class="nav__a" href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+      <a class="nav__a" href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+      <a class="nav__a" href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+      <a class="nav__a" href="publications.html" data-nav><span class="en">Publications</span><span class="hi hidden">प्रकाशन</span></a>
+      <a class="nav__a" href="grants.html" data-nav><span class="en">Grants</span><span class="hi hidden">अनुदान</span></a>
+      <a class="nav__a" href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+      <a class="nav__a" href="international.html" data-nav><span class="en">International</span><span class="hi hidden">अंतर्राष्ट्रीय</span></a>
+      <a class="nav__a" href="career.html" data-nav><span class="en">Career</span><span class="hi hidden">कैरियर</span></a>
+      <a class="nav__a" href="contact.html" data-nav><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      <a class="nav__a nav__dropdown-trigger" href="#" id="nav-more-btn" onclick="toggleDropdown(event)">
+        <span class="en">More ▾</span><span class="hi hidden">अधिक ▾</span>
+      </a>
+      <div class="nav__dropdown" id="nav-dropdown">
+        <a class="nav__drop-item" href="coe.html" data-nav><span class="drop-icon">🏛️</span><span class="en">Centres of Excellence</span><span class="hi hidden">उत्कृष्टता केंद्र</span></a>
+        <a class="nav__drop-item" href="sdg.html" data-nav><span class="drop-icon">🌱</span><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+        <a class="nav__drop-item" href="mou.html" data-nav><span class="drop-icon">🤝</span><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+        <a class="nav__drop-item" href="scholars.html" data-nav><span class="drop-icon">👩‍🔬</span><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+        <a class="nav__drop-item" href="thesis.html" data-nav><span class="drop-icon">🎓</span><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        <a class="nav__drop-item" href="contact.html" data-nav><span class="drop-icon">✉️</span><span class="en">Contact</span><span class="hi hidden">संपर्क</span></a>
+      </div>
+    </div>
+    <button class="nav__burger" id="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__drawer" id="nav-drawer">
+  <a class="nav__a" href="../index.html" data-nav><span class="en">🏠 Home</span><span class="hi hidden">🏠 होम</span></a>
+  <a class="nav__a" href="about.html" data-nav><span class="en">ℹ️ About</span><span class="hi hidden">ℹ️ बारे में</span></a>
+  <a class="nav__a" href="dashboard.html" data-nav><span class="en">📊 Dashboard</span><span class="hi hidden">📊 डैशबोर्ड</span></a>
+  <a class="nav__a" href="research.html" data-nav><span class="en">🔬 Research</span><span class="hi hidden">🔬 अनुसंधान</span></a>
+  <a class="nav__a" href="publications.html" data-nav><span class="en">📄 Publications</span><span class="hi hidden">📄 प्रकाशन</span></a>
+  <a class="nav__a" href="grants.html" data-nav><span class="en">💰 Grants</span><span class="hi hidden">💰 अनुदान</span></a>
+  <a class="nav__a" href="labs.html" data-nav><span class="en">🔭 Lab Booking</span><span class="hi hidden">🔭 लैब बुकिंग</span></a>
+  <a class="nav__a" href="international.html" data-nav><span class="en">🌐 International</span><span class="hi hidden">🌐 अंतर्राष्ट्रीय</span></a>
+  <a class="nav__a" href="career.html" data-nav><span class="en">💼 Career</span><span class="hi hidden">💼 कैरियर</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌍 SDG Impact</span><span class="hi hidden">🌍 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+  <a class="nav__a" href="contact.html" data-nav><span class="en">✉️ Contact</span><span class="hi hidden">✉️ संपर्क</span></a>
+  <div class="drawer-divider"><span class="en">More Pages</span><span class="hi hidden">अधिक पृष्ठ</span></div>
+  <a class="nav__a" href="coe.html" data-nav><span class="en">🏛️ Centres of Excellence</span><span class="hi hidden">🏛️ उत्कृष्टता केंद्र</span></a>
+  <a class="nav__a" href="sdg.html" data-nav><span class="en">🌱 SDG Impact</span><span class="hi hidden">🌱 SDG प्रभाव</span></a>
+  <a class="nav__a" href="mou.html" data-nav><span class="en">🤝 Industry MoUs</span><span class="hi hidden">🤝 उद्योग MoU</span></a>
+  <a class="nav__a" href="scholars.html" data-nav><span class="en">👩‍🔬 Scholar Directory</span><span class="hi hidden">👩‍🔬 शोधार्थी निर्देशिका</span></a>
+  <a class="nav__a" href="thesis.html" data-nav><span class="en">🎓 Thesis Tracker</span><span class="hi hidden">🎓 थीसिस ट्रैकर</span></a>
+</div>
+<div class="ticker" style="margin-top:calc(var(--lh) + var(--nh))">
+  <div class="ticker__track">
+    <span class="ticker__item en"><strong>🏆</strong> VIT Ranked #1 Private Institution for Innovation — ARIIA 2024</span>
+    <span class="ticker__item hi hidden"><strong>🏆</strong> वीआईटी नवाचार में #1 निजी संस्थान — ARIIA 2024</span>
+    <span class="ticker__item en"><strong>📄</strong> 8,940 Publications in 2024 — Record High for VIT Vellore</span>
+    <span class="ticker__item hi hidden"><strong>📄</strong> 2024 में 8,940 प्रकाशन — VIT वेल्लोर का रिकॉर्ड</span>
+    <span class="ticker__item en"><strong>💰</strong> DST SERB Grant Deadline: April 15, 2026 — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>💰</strong> DST SERB अनुदान समयसीमा: 15 अप्रैल 2026</span>
+    <span class="ticker__item en"><strong>🔭</strong> Cryo-EM Facility now available — Centre for Nanotechnology</span>
+    <span class="ticker__item hi hidden"><strong>🔭</strong> Cryo-EM सुविधा अब बुकिंग के लिए उपलब्ध</span>
+    <span class="ticker__item en"><strong>🚀</strong> VITREE 2026 PhD Admissions Open — Apply Now</span>
+    <span class="ticker__item hi hidden"><strong>🚀</strong> VITREE 2026 पीएचडी प्रवेश खुला</span>
+  </div>
+</div>
+<div class="pw" style="padding-top:0">
+  <section class="scholars-hero sec-bg2">
+    <div class="scholars-hero__inner">
+      <div class="pill pill-v rev"><span class="pill-dot"></span><span class="en">Research Community</span><span class="hi hidden">अनुसंधान समुदाय</span></div>
+      <h1 class="page-h rev d1"><span class="en">Faculty &amp; <span class="ac-v">Scholar Directory</span></span><span class="hi hidden">संकाय और <span class="ac-v">शोधार्थी निर्देशिका</span></span></h1>
+      <p class="page-sub rev d2 en">Browse VIT Vellore's principal investigators, research associates and PhD scholars — each card shows their 5-year publication velocity sparkline.</p>
+      <p class="page-sub rev d2 hi hidden">वीआईटी वेल्लोर के प्रमुख अन्वेषकों और पीएचडी शोधार्थियों को ब्राउज़ करें। प्रत्येक कार्ड पर 5-वर्षीय प्रकाशन वेग स्पार्कलाइन दिखाई देती है।</p>
+    </div>
+  </section>
+  <div class="sch-controls">
+    <input class="sch-search" type="text" placeholder="Search by name, dept, field..." id="sch-search" oninput="searchScholars(this.value)">
+    <button class="sch-filter on" onclick="filterRole(this,'all')"><span class="en">All</span><span class="hi hidden">सभी</span></button>
+    <button class="sch-filter" onclick="filterRole(this,'faculty')"><span class="en">Faculty</span><span class="hi hidden">संकाय</span></button>
+    <button class="sch-filter" onclick="filterRole(this,'scholar')"><span class="en">Scholars</span><span class="hi hidden">शोधार्थी</span></button>
+  </div>
+  <div class="sch-grid" id="sch-grid">
+      <div class="sch-card rev" data-role="faculty" data-dept="SCOPE">
+        <div class="sch-card__avatar">RK</div>
+        <div class="sch-card__name">Dr. Rajesh Kumar</div>
+        <div class="sch-card__title">Principal Investigator</div>
+        <div class="sch-card__dept">SCOPE · AI & Machine Learning</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,22.7 L18.0,20.7 L36.0,18.0 L54.0,13.3 L72.0,7.3 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,22.7 L18.0,20.7 L36.0,18.0 L54.0,13.3 L72.0,7.3 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">312</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">52</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-v">Faculty</span></div>
+      </div>
+      <div class="sch-card rev" data-role="faculty" data-dept="SENSE">
+        <div class="sch-card__avatar">LS</div>
+        <div class="sch-card__name">Prof. Lakshmi Subramaniam</div>
+        <div class="sch-card__title">Associate Professor</div>
+        <div class="sch-card__dept">SENSE · Clean Energy</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,23.7 L18.0,21.5 L36.0,18.2 L54.0,13.9 L72.0,7.4 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,23.7 L18.0,21.5 L36.0,18.2 L54.0,13.9 L72.0,7.4 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">241</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">44</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-v">Faculty</span></div>
+      </div>
+      <div class="sch-card rev" data-role="faculty" data-dept="SBST">
+        <div class="sch-card__avatar">AP</div>
+        <div class="sch-card__name">Dr. Arjun Pillai</div>
+        <div class="sch-card__title">Assistant Professor</div>
+        <div class="sch-card__dept">SBST · Biotechnology</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,22.4 L18.0,19.6 L36.0,16.5 L54.0,11.5 L72.0,7.6 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,22.4 L18.0,19.6 L36.0,16.5 L54.0,11.5 L72.0,7.6 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">186</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">38</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-v">Faculty</span></div>
+      </div>
+      <div class="sch-card rev" data-role="faculty" data-dept="SMEC">
+        <div class="sch-card__avatar">VR</div>
+        <div class="sch-card__name">Prof. Venkatesan Ravi</div>
+        <div class="sch-card__title">Professor</div>
+        <div class="sch-card__dept">SMEC · Automotive</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,23.3 L18.0,20.0 L36.0,16.4 L54.0,11.9 L72.0,6.3 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,23.3 L18.0,20.0 L36.0,16.4 L54.0,11.9 L72.0,6.3 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">198</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">34</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-v">Faculty</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SBST">
+        <div class="sch-card__avatar">MR</div>
+        <div class="sch-card__name">Dr. Meenakshi Rao</div>
+        <div class="sch-card__title">Senior Research Fellow</div>
+        <div class="sch-card__dept">SBST · Drug Discovery</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,21.9 L18.0,19.4 L36.0,16.4 L54.0,12.1 L72.0,6.6 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,21.9 L18.0,19.4 L36.0,16.4 L54.0,12.1 L72.0,6.6 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">142</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">29</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SBME">
+        <div class="sch-card__avatar">AS</div>
+        <div class="sch-card__name">Dr. Arul Selvam</div>
+        <div class="sch-card__title">Research Associate</div>
+        <div class="sch-card__dept">SBME · Biomedical</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,22.1 L18.0,19.7 L36.0,16.6 L54.0,12.2 L72.0,6.7 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,22.1 L18.0,19.7 L36.0,16.6 L54.0,12.2 L72.0,6.7 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">98</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">24</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SCOPE">
+        <div class="sch-card__avatar">PN</div>
+        <div class="sch-card__name">Priya Nair</div>
+        <div class="sch-card__title">PhD Scholar</div>
+        <div class="sch-card__dept">SCOPE · Computer Vision</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,24.2 L18.0,21.1 L36.0,18.1 L54.0,13.5 L72.0,8.1 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,24.2 L18.0,21.1 L36.0,18.1 L54.0,13.5 L72.0,8.1 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">34</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">—</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SENSE">
+        <div class="sch-card__avatar">SB</div>
+        <div class="sch-card__name">Suresh Babu</div>
+        <div class="sch-card__title">PhD Scholar</div>
+        <div class="sch-card__dept">SENSE · Solar Energy</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,24.4 L18.0,21.7 L36.0,18.1 L54.0,13.2 L72.0,7.8 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,24.4 L18.0,21.7 L36.0,18.1 L54.0,13.2 L72.0,7.8 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">28</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">—</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SBME">
+        <div class="sch-card__avatar">DM</div>
+        <div class="sch-card__name">Divya Moorthy</div>
+        <div class="sch-card__title">PhD Scholar</div>
+        <div class="sch-card__dept">SBME · Neural Interfaces</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,24.7 L18.0,22.0 L36.0,18.0 L54.0,13.3 L72.0,8.0 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,24.7 L18.0,22.0 L36.0,18.0 L54.0,13.3 L72.0,8.0 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">19</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">—</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SCOPE">
+        <div class="sch-card__avatar">AJ</div>
+        <div class="sch-card__name">Anika Joshi</div>
+        <div class="sch-card__title">M.Tech Scholar</div>
+        <div class="sch-card__dept">SCOPE · NLP</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,28.0 L18.0,23.7 L36.0,19.3 L54.0,13.9 L72.0,8.5 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,28.0 L18.0,23.7 L36.0,19.3 L54.0,13.9 L72.0,8.5 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">12</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">—</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SMEC">
+        <div class="sch-card__avatar">RG</div>
+        <div class="sch-card__name">Rahul Gupta</div>
+        <div class="sch-card__title">PhD Scholar</div>
+        <div class="sch-card__dept">SMEC · EV Technology</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,23.4 L18.0,20.2 L36.0,17.0 L54.0,12.4 L72.0,7.2 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,23.4 L18.0,20.2 L36.0,17.0 L54.0,12.4 L72.0,7.2 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">22</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">—</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+      <div class="sch-card rev" data-role="scholar" data-dept="SENSE">
+        <div class="sch-card__avatar">KB</div>
+        <div class="sch-card__name">Kavitha Balachandran</div>
+        <div class="sch-card__title">Research Associate</div>
+        <div class="sch-card__dept">SENSE · Materials</div>
+        <svg class="sch-sparkline" viewBox="0 0 90 28" preserveAspectRatio="none"><path class="sch-spark-path" d="M0.0,23.1 L18.0,20.2 L36.0,17.2 L54.0,12.8 L72.0,7.4 L90.0,2.0"/><path class="sch-spark-fill" d="M0.0,23.1 L18.0,20.2 L36.0,17.2 L54.0,12.8 L72.0,7.4 L90.0,2.0 L90,28 L0,28 Z"/></svg>
+        <div class="sch-card__stats">
+          <div class="sch-card__stat"><div class="sch-card__stat-val">89</div><div class="sch-card__stat-label en">Papers</div></div>
+          <div class="sch-card__stat"><div class="sch-card__stat-val" style="color:var(--gold)">21</div><div class="sch-card__stat-label en">h-Index</div></div>
+        </div>
+        <div class="sch-card__badge"><span class="pill pill-t">Scholar</span></div>
+      </div>
+  </div>
+
+</div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="nav-logo__mark" style="width:40px;height:40px;font-size:18px;flex-shrink:0">V</div>
+      <div>
+        <div class="footer__bname en">VIT Research Dashboard</div>
+        <div class="footer__bname hi hidden">वीआईटी अनुसंधान डैशबोर्ड</div>
+        <div class="footer__bsub en">Vellore Institute of Technology<br>Institution of Eminence, Govt. of India</div>
+        <div class="footer__bsub hi hidden">वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी<br>उत्कृष्टता संस्थान, भारत सरकार</div>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <div class="footer__ctitle en">Core Pages</div><div class="footer__ctitle hi hidden">मुख्य पृष्ठ</div>
+        <div class="footer__clinks">
+          <a href="../index.html" data-nav><span class="en">Home</span><span class="hi hidden">होम</span></a>
+          <a href="about.html" data-nav><span class="en">About</span><span class="hi hidden">बारे में</span></a>
+          <a href="dashboard.html" data-nav><span class="en">Dashboard</span><span class="hi hidden">डैशबोर्ड</span></a>
+          <a href="research.html" data-nav><span class="en">Research</span><span class="hi hidden">अनुसंधान</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">Research Tools</div><div class="footer__ctitle hi hidden">अनुसंधान टूल्स</div>
+        <div class="footer__clinks">
+          <a href="publications.html" data-nav><span class="en">Publications &amp; IP</span><span class="hi hidden">प्रकाशन और IP</span></a>
+          <a href="grants.html" data-nav><span class="en">Grants Portal</span><span class="hi hidden">अनुदान पोर्टल</span></a>
+          <a href="labs.html" data-nav><span class="en">Lab Booking</span><span class="hi hidden">लैब बुकिंग</span></a>
+          <a href="coe.html" data-nav><span class="en">CoE Hub</span><span class="hi hidden">CoE हब</span></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__ctitle en">More</div><div class="footer__ctitle hi hidden">अधिक</div>
+        <div class="footer__clinks">
+          <a href="sdg.html" data-nav><span class="en">SDG Impact</span><span class="hi hidden">SDG प्रभाव</span></a>
+          <a href="mou.html" data-nav><span class="en">Industry MoUs</span><span class="hi hidden">उद्योग MoU</span></a>
+          <a href="scholars.html" data-nav><span class="en">Scholar Directory</span><span class="hi hidden">शोधार्थी निर्देशिका</span></a>
+          <a href="thesis.html" data-nav><span class="en">Thesis Tracker</span><span class="hi hidden">थीसिस ट्रैकर</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__btm">
+    <span class="footer__copy en">© 2026 Vellore Institute of Technology. All rights reserved.</span>
+    <span class="footer__copy hi hidden">© 2026 वेल्लोर इंस्टीट्यूट ऑफ टेक्नोलॉजी। सर्वाधिकार सुरक्षित।</span>
+    <span class="footer__copy en">Built for <a href="#">VIT Research Office</a></span>
+  </div>
+</footer>
+<button id="stt" aria-label="Scroll to top">↑</button>
+<script src="../js/nav.js"></script>
+<script>
+function filterRole(btn,role){
+  document.querySelectorAll('.sch-filter').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.querySelectorAll('.sch-card').forEach(function(c){
+    c.style.display=(role==='all'||c.dataset.role===role)?'':'none';
+  });
+}
+function searchScholars(val){
+  var v=val.toLowerCase();
+  document.querySelectorAll('.sch-card').forEach(function(c){
+    c.style.display=c.textContent.toLowerCase().includes(v)?'':'none';
+  });
+}
+</script>
+</body>
+</html>
