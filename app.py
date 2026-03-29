@@ -4,11 +4,10 @@ from flask_babel import Babel, gettext
 app = Flask(__name__)
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 
-babel = Babel(app)
-
-@babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(['en', 'ta'])
+
+babel = Babel(app, locale_selector=get_locale)
 
 @app.route('/')
 def home():
