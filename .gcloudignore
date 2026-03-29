@@ -1,0 +1,10 @@
+# This file specifies files and directories to ignore for Google Cloud deployments
+# Add any files or directories that you want to exclude from deployment
+
+# Exclude deployment directories and files
+.git/
+node_modules/
+dist/
+build/
+*.log
+*.tmp
