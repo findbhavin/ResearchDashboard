@@ -1,24 +1,22 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_babel import Babel
+from flask import Flask, render_template, redirect, url_for, request
+from flask_babel import Babel, gettext
 
 app = Flask(__name__)
-app.config['LANGUAGES'] = ['en', 'hi']
 app.config['BABEL_DEFAULT_LOCALE'] = 'en'
 
 babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(['en', 'ta'])
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
-@app.route('/switch_language/<lang>')
-def switch_language(lang):
-    # Set the language in session or cookie here
-    return redirect(url_for('index'))
+@app.route('/health')
+def health_check():
+    return {'status': 'healthy'}, 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
