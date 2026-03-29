@@ -1,5 +1,5 @@
 Flask
-Babel
+Flask-Babel==4.0.0
 # Deployment dependencies
 Gunicorn
 psycopg2-binary
